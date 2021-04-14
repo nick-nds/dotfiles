@@ -1,0 +1,21 @@
+#mount drives
+alias adrive='sudo mount /dev/sdb3 /home/nick/adrive'
+alias bdrive='sudo mount /dev/sdb4 /home/nick/bdrive'
+alias cdrive='sudo mount /dev/sda4 /home/nick/cdrive'
+alias ddrive='sudo mount /dev/sdb1 /home/nick/ddrive'
+
+#vim to nvim
+alias vim='nvim'
+
+
+#ls alias
+alias ls='ls --color=tty -al'
+
+alias recursiveextact='find . -name "*.zip" | while read filename; do unzip -o -d "`dirname "$filename"`" "$filename"; done;'
+
+
+# wallpaper
+alias wallpaper='/home/nick/wallpaper/wallpaper.py 1>/dev/null 2>&1 &'
+
+#php executable
+alias composer='php7 /home/nick/composer.phar'
