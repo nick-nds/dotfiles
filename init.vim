@@ -47,8 +47,8 @@ Plug 'nvim-lua/completion-nvim' "Autocomplete
 Plug 'tjdevries/nlua.nvim'
 Plug 'tjdevries/lsp_extensions.nvim'
 
-Plug 'prabirshrestha/asyncomplete.vim'
-Plug 'prabirshrestha/asyncomplete-lsp.vim'
+"Plug 'prabirshrestha/asyncomplete.vim'
+"Plug 'prabirshrestha/asyncomplete-lsp.vim'
 
 Plug 'nathanaelkane/vim-indent-guides' "Show indent guides
 
@@ -58,7 +58,9 @@ Plug 'tpope/vim-commentary' "Commenting
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " coc plugin
 
-Plug 'iamcco/coc-tailwindcss',  {'do': 'yarn install --frozen-lockfile && yarn run build'} "tailwind intellisense
+"Plug 'iamcco/coc-tailwindcss',  {'do': 'yarn install --frozen-lockfile && yarn run build'} "tailwind intellisense
+
+Plug 'rodrigore/coc-tailwind-intellisense', {'do': 'npm install'}
 
 
 "Plug 'turbio/bracey.vim' "Live edit
