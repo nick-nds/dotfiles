@@ -56,6 +56,10 @@ Plug 'mattn/emmet-vim' "Emmet vim
 
 Plug 'tpope/vim-commentary' "Commenting
 
+Plug 'neoclide/coc.nvim', {'branch': 'release'} " coc plugin
+
+Plug 'iamcco/coc-tailwindcss',  {'do': 'yarn install --frozen-lockfile && yarn run build'} "tailwind intellisense
+
 
 "Plug 'turbio/bracey.vim' "Live edit
 
