@@ -109,3 +109,5 @@ export PATH=$HOME/i3lock-blur:$PATH
 export PATH="/home/nick/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
+
+export BROWSER=/usr/bin/firefox

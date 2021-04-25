@@ -23,7 +23,7 @@ set $lockScreenWallpaper /usr/share/wallpapers/garuda-wallpapers/coin.png
 set $preferredTerminalEmulator /usr/bin/alacritty
 set $preferredBrowser /usr/bin/firefox
 set $preferredFileManager /usr/bin/thunar
-set $preferredMailClient /usr/bin/geary
+set $preferredMailClient /usr/bin/thunderbird
 set $preferredTextEditor /usr/bin/geany
 set $preferredScreenCaptureTool /usr/bin/flameshot gui
 

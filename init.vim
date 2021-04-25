@@ -52,6 +52,13 @@ Plug 'prabirshrestha/asyncomplete-lsp.vim'
 
 Plug 'nathanaelkane/vim-indent-guides' "Show indent guides
 
+Plug 'mattn/emmet-vim' "Emmet vim
+
+Plug 'tpope/vim-commentary' "Commenting
+
+
+"Plug 'turbio/bracey.vim' "Live edit
+
 call plug#end()
 
 "let g:syntastic_python_checkers = ['pylint']
@@ -129,6 +136,9 @@ nnoremap <leader>lF <cmd>LspDocumentFormat<cr>
 "============
 nnoremap <leader>e <cmd>q<cr>
 
+
+" write and refresh in browser
+cmap ww<cr> w<cr> :silent! !~/bin/refresh<cr>
 
 
 " Use <Tab> and <S-Tab> to navigate through popup menu
