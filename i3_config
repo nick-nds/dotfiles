@@ -27,6 +27,7 @@ set $preferredMailClient /usr/bin/thunderbird
 set $preferredTextEditor /usr/bin/geany
 set $preferredScreenCaptureTool /usr/bin/flameshot gui
 
+
 ###########################################
 ### Commonly Used Application Keybinds: ###
 ###########################################
@@ -35,6 +36,10 @@ bindsym $super+F1 exec $preferredBrowser;focus
 bindsym $super+F2 exec $preferredFileManager;focus
 bindsym $super+F3 exec $preferredMailClient;focus
 bindsym $super+F4 exec $preferredTextEditor;focus
+
+bindsym $super+F5 exec /home/nick/wallpaper/wallpaper.py
+
+
 
 ### Screen Capturing & Print Screen: ###
 
@@ -46,7 +51,8 @@ bindsym Print exec --no-startup-id $preferredScreenCaptureTool
 # - alacritty & xfce4-terminal can also be started using their individual keybindings
 
 bindsym $super+Return exec $preferredTerminalEmulator
-bindsym $super+t exec xfce4-terminal
+# bindsym $super+t exec xfce4-terminal
+bindsym $super+t exec /usr/bin/alacritty
 
 # set font
 font pango: source code pro 10

@@ -15,7 +15,7 @@ set smartindent
 
 set hidden "Keep any buffer open in background
 set noerrorbells
-set nowrap
+set wrap
 
 "Keeping history
 set noswapfile
@@ -26,11 +26,12 @@ set undofile
 set incsearch "Set incremental search i.e. highlight as u search
 set scrolloff=8 "keep my cursor in center
 
-set colorcolumn=80 "A bar to alert to not exceed code across this line
+set colorcolumn=200 "A bar to alert to not exceed code across this line
 set signcolumn=yes "Add extra column for linting error
 
 "Give more space to display messages
 set cmdheight=2
+
 
 "Plugin Manager, vim-plug
 call plug#begin('~/.vim/plugged')
@@ -74,6 +75,8 @@ let g:gruvbox_improved_warnings=1
 let g:gruvbox_italicize_comments=1
 let g:gruvbox_italicize_strings=1
 colorscheme gruvbox
+"making background transparent
+highlight Normal ctermbg=none
 
 "Map leader key to space
 let mapleader = " "

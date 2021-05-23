@@ -19,3 +19,6 @@ alias wallpaper='/home/nick/wallpaper/wallpaper.py 1>/dev/null 2>&1 &'
 
 #php executable
 alias composer='php7 /home/nick/composer.phar'
+
+# docker aliases
+alias dcrun='docker-compose run'

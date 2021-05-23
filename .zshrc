@@ -107,6 +107,7 @@ export LS_COLORS="$LS_COLORS:ow=1;34:tw=1;34:"
 export PATH=$HOME/i3lock-blur:$PATH
 
 export PATH="/home/nick/.pyenv/bin:$PATH"
+export PATH="/home/nick/.local/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
