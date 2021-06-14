@@ -63,6 +63,9 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'} " coc plugin
 
 Plug 'rodrigore/coc-tailwind-intellisense', {'do': 'npm install'}
 
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
 
 "Plug 'turbio/bracey.vim' "Live edit
 
@@ -77,6 +80,14 @@ let g:gruvbox_italicize_strings=1
 colorscheme gruvbox
 "making background transparent
 highlight Normal ctermbg=none
+
+
+" Vim Airline configuration
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+
 
 "Map leader key to space
 let mapleader = " "
@@ -144,6 +155,19 @@ nnoremap <leader>lF <cmd>LspDocumentFormat<cr>
 "Quiting vim
 "============
 nnoremap <leader>e <cmd>q<cr>
+nnoremap <leader>q <cmd>qa<cr>
+
+
+"============
+"Quiting tabs
+"============
+nnoremap <leader>T <cmd>tabclose<cr>
+
+
+"============
+"View Tabs
+"============
+nnoremap <leader>t <cmd>tabs<cr>
 
 
 " write and refresh in browser
@@ -173,3 +197,4 @@ set shortmess+=c
 "    let col = col('.') - 1
 "    return !col || getline('.')[col - 1]  =~# '\s'
 "endfunction
+

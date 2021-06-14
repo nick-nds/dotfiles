@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/nick/.oh-my-zsh"
+export ZSH="/home/codeclouds-nitin/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -104,11 +104,14 @@ set -o vi
 . ~/.aliases
 
 export LS_COLORS="$LS_COLORS:ow=1;34:tw=1;34:"
-export PATH=$HOME/i3lock-blur:$PATH
+# export PATH=$HOME/i3lock-blur:$PATH
 
-export PATH="/home/nick/.pyenv/bin:$PATH"
-export PATH="/home/nick/.local/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+# export PATH="/home/nick/.pyenv/bin:$PATH"
+export PATH="/home/codeclouds-nitin/.local/bin:$PATH"
+# export PATH="/opt/lampp/bin:$PATH"
+TRIM=/opt/lampp/bin
+export PATH=$(echo "$PATH" | sed -e "s,:$TRIM:,:," )
+# eval "$(pyenv init -)"
+# eval "$(pyenv virtualenv-init -)"
 
 export BROWSER=/usr/bin/firefox
