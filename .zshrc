@@ -115,3 +115,5 @@ export PATH=$(echo "$PATH" | sed -e "s,:$TRIM:,:," )
 # eval "$(pyenv virtualenv-init -)"
 
 export BROWSER=/usr/bin/firefox
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

@@ -40,7 +40,7 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'gruvbox-community/gruvbox'
 "Plug 'vim-syntastic/syntastic' "Syntax checking plugin
-Plug 'dbeniamine/cheat.sh-vim' "Vim support for cheat.sh
+" Plug 'dbeniamine/cheat.sh-vim' "Vim support for cheat.sh
 
 Plug 'prabirshrestha/vim-lsp'
 Plug 'mattn/vim-lsp-settings' "LspInstallServer type things

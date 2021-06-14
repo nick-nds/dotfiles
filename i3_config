@@ -38,6 +38,7 @@ bindsym $super+F3 exec $preferredMailClient;focus
 bindsym $super+F4 exec $preferredTextEditor;focus
 
 bindsym $super+F5 exec /home/nick/wallpaper/wallpaper.py
+bindsym $super+F6 exec /home/nick/projects/docker-ip/docker-ip.py
 
 
 

@@ -1,8 +1,8 @@
 #!/usr/bin/python
 
 import os
-import random
-import time
+# import random
+# import time
 import datetime
 
 path = os.path.join(os.getcwd(), "/home/nick/wallpaper/wallpapers")
@@ -19,12 +19,12 @@ Rpath = os.path.join(path, "1366x768")
 img2 = os.path.join(Rpath, "cropped-1366-768-793604.jpg")
 
 
-os.system("echo '' > error.log")
-os.system("echo '============================' >> error.log")
-os.system("echo '" + str(datetime.datetime.now()) + "' >> error.log")
-os.system("echo '============================' >> error.log")
-os.system("convert " + img1 + " " + img2 + " +append wallpaper.png 2>> error.log")
-os.system("nitrogen --set-centered /home/nick/wallpaper.png --save 2>> error.log")
+os.system("echo '' > /home/nick/wallpaper/error.log")
+os.system("echo '============================' >> /home/nick/wallpaper/error.log")
+os.system("echo '" + str(datetime.datetime.now()) + "' >> /home/nick/wallpaper/error.log")
+os.system("echo '============================' >> /home/nick/wallpaper/error.log")
+os.system("convert " + img1 + " " + img2 + " +append wallpaper.png 2>> /home/nick/wallpaper/error.log")
+os.system("nitrogen --set-centered /home/nick/wallpaper.png --save 2>> /home/nick/wallpaper/error.log")
 
 # while True:
 #     Lpath = os.path.join(path, "1920x1080")
