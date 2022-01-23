@@ -8,8 +8,8 @@ set nu
 set nohlsearch "No highlight search
 
 set autoindent             " Respect indentation when starting a new line.
-set tabstop=2 softtabstop=2
-set shiftwidth=2
+set tabstop=4 softtabstop=4
+set shiftwidth=4
 set expandtab
 set smartindent
 
@@ -35,39 +35,63 @@ set cmdheight=2
 
 "Plugin Manager, vim-plug
 call plug#begin('~/.vim/plugged')
+
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope-fzy-native.nvim'
 Plug 'gruvbox-community/gruvbox'
 "Plug 'vim-syntastic/syntastic' "Syntax checking plugin
 " Plug 'dbeniamine/cheat.sh-vim' "Vim support for cheat.sh
 
 Plug 'prabirshrestha/vim-lsp'
-Plug 'mattn/vim-lsp-settings' "LspInstallServer type things
-Plug 'nvim-lua/completion-nvim' "Autocomplete
+
+"LspInstallServer type things
+Plug 'mattn/vim-lsp-settings' 
+
+"Autocomplete
+Plug 'nvim-lua/completion-nvim' 
 Plug 'tjdevries/nlua.nvim'
 Plug 'tjdevries/lsp_extensions.nvim'
 
 "Plug 'prabirshrestha/asyncomplete.vim'
 "Plug 'prabirshrestha/asyncomplete-lsp.vim'
 
-Plug 'nathanaelkane/vim-indent-guides' "Show indent guides
+"Show indent guides
+Plug 'nathanaelkane/vim-indent-guides' 
 
-Plug 'mattn/emmet-vim' "Emmet vim
+"Emmet vim
+Plug 'mattn/emmet-vim' 
 
-Plug 'tpope/vim-commentary' "Commenting
+
+"Commenting
+Plug 'tpope/vim-commentary'
+
+" git wrapper for vim
+Plug 'tpope/vim-fugitive'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " coc plugin
 
 "Plug 'iamcco/coc-tailwindcss',  {'do': 'yarn install --frozen-lockfile && yarn run build'} "tailwind intellisense
 
-Plug 'rodrigore/coc-tailwind-intellisense', {'do': 'npm install'}
+" Plug 'rodrigore/coc-tailwind-intellisense', {'do': 'npm install'}
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
+"Renaming tab labels
+Plug 'gcmt/taboo.vim' 
+
+Plug 'christoomey/vim-system-copy'
+
+"A Vim plugin for visually displaying indent levels in code 
+Plug 'nathanaelkane/vim-indent-guides' 
+
 
 "Plug 'turbio/bracey.vim' "Live edit
+
+"A git blame plugin for neovim inspired by VS Code's GitLens plugin 
+Plug 'APZelos/blamer.nvim'
 
 call plug#end()
 
@@ -81,12 +105,19 @@ colorscheme gruvbox
 "making background transparent
 highlight Normal ctermbg=none
 
+" indent guides
+let g:indent_guides_enable_on_vim_startup = 1
+
 
 " Vim Airline configuration
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline#extensions#tabline#formatter = 'unique_tail'
+
+"Taboo configuration
+set sessionoptions+=tabpages,globals
+let g:taboo_renamed_tab_format=' [%N][%l]%m '
 
 
 "Map leader key to space
@@ -99,6 +130,11 @@ let mapleader = " "
 " switch between spilts
 " 3 <leader>ss will switch 3 times
 nnoremap <leader>ss <c-w><c-w>
+
+" fugitive vim maps
+nmap <leader>gs :G<CR>
+nmap <leader>gj :diffget //3<CR>
+nmap <leader>gf :diffget //2<CR>
 
 
 "=============================

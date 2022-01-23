@@ -70,7 +70,7 @@ ZSH_THEME="avit"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git alias-finder)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -115,5 +115,9 @@ export PATH=$(echo "$PATH" | sed -e "s,:$TRIM:,:," )
 # eval "$(pyenv virtualenv-init -)"
 
 export BROWSER=/usr/bin/firefox
+
+export git_token=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
+export GCM_PLAINTEXT_STORE_PATH=/home/codeclouds-nitin/.git_cred/token_ubuntu_codeclouds_pc
+
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

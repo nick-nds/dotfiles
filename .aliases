@@ -9,7 +9,7 @@ alias vim='nvim'
 
 
 #ls alias
-alias ls='ls --color=tty -al'
+alias ll='ls --color=tty -al'
 
 alias recursiveextact='find . -name "*.zip" | while read filename; do unzip -o -d "`dirname "$filename"`" "$filename"; done;'
 
@@ -28,3 +28,5 @@ alias dc='docker-compose'
 # alias composer='/opt/lampp/bin/php /usr/local/bin/composer'
 
 # alias php='/usr/bin/php7.2'
+
+alias gto='. git_worktree'
