@@ -116,7 +116,6 @@ export PATH=$(echo "$PATH" | sed -e "s,:$TRIM:,:," )
 
 export BROWSER=/usr/bin/firefox
 
-export git_token=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
 export GCM_PLAINTEXT_STORE_PATH=/home/codeclouds-nitin/.git_cred/token_ubuntu_codeclouds_pc
 
 
