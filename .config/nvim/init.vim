@@ -1,1 +1,3 @@
-lua require('settings.basic')
+lua require('init')
+
+filetype plugin on
