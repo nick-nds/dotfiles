@@ -1,10 +1,10 @@
 return require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
-	
+
 	--telescope bitch
 	use {
 		'nvim-telescope/telescope.nvim',
-		requires = { 
+		requires = {
 			{ 'nvim-lua/plenary.nvim' },
 			{ 'BurntSushi/ripgrep' },
 		}
@@ -31,7 +31,7 @@ return require('packer').startup(function(use)
 
 	use { 'christoomey/vim-system-copy' }
 
-	--A git blame plugin for neovim inspired by VS Code's GitLens plugin 
+	--A git blame plugin for neovim inspired by VS Code's GitLens plugin
 	use { 'APZelos/blamer.nvim' }
 
 	-- a neovim theme written in lua
@@ -41,11 +41,21 @@ return require('packer').startup(function(use)
 	--a git wrapper for vim
 	use { 'tpope/vim-fugitive' }
 
-	--airline
-	--use { 'vim-airline/vim-airline' }
-	--use { 'vim-airline/vim-airline-themes' }
-	use { 'nvim-lualine/lualine.nvim', 
-		requires = { 'kyazdani42/nvim-web-devicons', opt = true } 
+	use { 'nvim-lualine/lualine.nvim',
+		requires = { 'kyazdani42/nvim-web-devicons', opt = true }
 	}
+
+	--tree like view for symbols
+	use { 'simrat39/symbols-outline.nvim' }
+
+	--a file explorer tree for neovim written in lua
+	use {
+		'kyazdani42/nvim-tree.lua',
+		requires = {
+		  'kyazdani42/nvim-web-devicons', -- optional, for file icon
+		},
+		config = function() require'nvim-tree'.setup {} end
+	}
+	use { 'mattn/emmet-vim' }
 end)
 

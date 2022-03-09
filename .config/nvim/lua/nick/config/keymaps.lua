@@ -34,6 +34,7 @@ kmap('n', '<leader>e', '<cmd>q<cr>',  opts) --quit vim
 kmap('n', '<leader>q', '<cmd>qa<cr>',  opts) --quit vim
 kmap('n', '<leader>T', '<cmd>tabclose<cr>',  opts) --close active tab
 kmap('n', '<leader>t', '<cmd>tabs<cr>',  opts) --view tabs
+kmap('n', '<C-t>', '<cmd>tabnew<cr>',  opts) --view tabs
 
 --autocomplete setup
 vim.cmd[[inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"]]

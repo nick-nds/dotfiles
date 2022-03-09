@@ -4,7 +4,6 @@ M.load_options = function()
     local options = {
 		relativenumber = true,
 		encoding = "utf-8",
-		mouse = "a",
 		foldexpr = "",
 		hidden = true,
 		number = true,
