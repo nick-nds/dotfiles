@@ -6,6 +6,7 @@ M.load = function()
 	require "nick.core.nvim_cmp".setup()
 	require "nick.core.nvim_tree".setup()
 	require "nick.core.symbols_outline".setup()
+	require "nick.core.toggleterm".setup()
 end
 
 return M
