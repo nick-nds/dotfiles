@@ -75,5 +75,7 @@ return require('packer').startup(function(use)
 
 	--neovim lua plugin to help easily manage multiple terminal windows
 	use {"akinsho/toggleterm.nvim"}
+
+	use "lunarvim/onedarker.nvim"
 end)
 

@@ -1,7 +1,8 @@
 local M = {}
 
 M.load = function()
-	require "nick.core.tokyonight".setup()
+	--require "nick.core.tokyonight".setup()
+	vim.cmd[[colorscheme onedarker]]
 	require "nick.core.lualine".setup()
 	require "nick.core.nvim_cmp".setup()
 	require "nick.core.nvim_tree".setup()
