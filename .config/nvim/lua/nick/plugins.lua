@@ -25,7 +25,7 @@ return require('packer').startup(function(use)
 
 
 	--indent guide
-	use { "lukas-reineke/indent-blankline.nvim" }
+	-- use { "lukas-reineke/indent-blankline.nvim" }
 
 	--Renaming tab labels
 	use { 'gcmt/taboo.vim' }
@@ -74,8 +74,11 @@ return require('packer').startup(function(use)
 	use { 'saadparwaiz1/cmp_luasnip' }
 
 	--neovim lua plugin to help easily manage multiple terminal windows
-	use {"akinsho/toggleterm.nvim"}
+	use { "akinsho/toggleterm.nvim" }
 
-	use "lunarvim/onedarker.nvim"
+	use { "lunarvim/onedarker.nvim" }
+
+	--indent guide
+	use { "nathanaelkane/vim-indent-guides" }
 end)
 
