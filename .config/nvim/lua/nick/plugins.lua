@@ -80,5 +80,8 @@ return require('packer').startup(function(use)
 
 	--indent guide
 	use { "nathanaelkane/vim-indent-guides" }
+
+	--gruvbox
+	use { 'gruvbox-community/gruvbox' }
 end)
 
