@@ -30,3 +30,5 @@ alias dc='docker-compose'
 # alias php='/usr/bin/php7.2'
 
 alias gto='. git_worktree'
+
+alias python='python3'

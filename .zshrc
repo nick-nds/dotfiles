@@ -120,3 +120,10 @@ export GCM_PLAINTEXT_STORE_PATH=/home/codeclouds-nitin/.git_cred/token_ubuntu_co
 
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export PATH="$PATH:$HOME/.spicetify"
+export SPICETIFY_INSTALL="/home/codeclouds-nitin/.spicetify"
+export PATH="$SPICETIFY_INSTALL:$PATH"
+
+# to fix termux icon problem
+export LC_ALL=en_IN.UTF-8
+export LANG=en_IN.UTF-8

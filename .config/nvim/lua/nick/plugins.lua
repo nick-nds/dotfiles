@@ -25,7 +25,7 @@ return require('packer').startup(function(use)
 
 
 	--indent guide
-	-- use { "lukas-reineke/indent-blankline.nvim" }
+	use { "lukas-reineke/indent-blankline.nvim" }
 
 	--Renaming tab labels
 	use { 'gcmt/taboo.vim' }
@@ -79,9 +79,12 @@ return require('packer').startup(function(use)
 	use { "lunarvim/onedarker.nvim" }
 
 	--indent guide
-	use { "nathanaelkane/vim-indent-guides" }
+	-- use { "nathanaelkane/vim-indent-guides" }
 
 	--gruvbox
 	use { 'gruvbox-community/gruvbox' }
+
+	--Nord theme
+	use { 'arcticicestudio/nord-vim' , branch  = 'develop' }
 end)
 
