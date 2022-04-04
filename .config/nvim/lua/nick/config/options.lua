@@ -37,7 +37,7 @@ M.load_options = function()
 	vim.opt.whichwrap:append "<,>,[,],h,l"
 
 	--Taboo configuration
-	vim.g.taboo_renamed_tab_format=' [%N][%l]%m '
+	vim.g.taboo_renamed_tab_format=' %N.%l %m '
 	vim.opt.sessionoptions:append "tabpages,globals"
 
 	-- Make compatible with st, truecolors
