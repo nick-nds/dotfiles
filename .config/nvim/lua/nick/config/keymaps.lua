@@ -39,3 +39,6 @@ kmap('n', '<C-t>', '<cmd>tabnew<cr>',  opts) --view tabs
 --autocomplete setup
 vim.cmd[[inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"]]
 vim.cmd[[inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"]]
+
+-- Nvim Tree maps
+kmap('n', '<leader>n', '<cmd>NvimTreeToggle<cr>',  opts) --quit vim
