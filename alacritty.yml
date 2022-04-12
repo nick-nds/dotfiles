@@ -96,7 +96,8 @@ font:
     #
     Default:
     #   - (macOS) Menlo
-      - (Linux/BSD) monospace
+    #   - (Linux/BSD) monospace
+      - Hack Nerd Font
     #   - (Windows) Consolas
     # family: MesloLGS NF
 
