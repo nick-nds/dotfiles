@@ -86,5 +86,33 @@ return require('packer').startup(function(use)
 
 	--Nord theme
 	use { 'arcticicestudio/nord-vim' , branch  = 'develop' }
+
+	-- git-worktree
+	use { 'ThePrimeagen/git-worktree.nvim' }
+
+	-- vim's popup api to neovim
+	use { 'nvim-lua/popup.nvim' }
+
+	-- Primeageon's Harpoon
+	use { 'ThePrimeagen/harpoon' }
+    
+	-- zettlekasten notes in vim
+	-- use { 'oberblastmeister/neuron.nvim' }
+
+    -- tpope's comment
+    use { 'tpope/vim-commentary' }
+
+    -- Edit code that's embedded within other code
+    use { 'AndrewRadev/inline_edit.vim' }
+
+    -- A Vim plugin that manages your tag files
+    use { 'ludovicchabant/vim-gutentags' }
+
+    -- Vim plugin that displays tags in a window, ordered by scope
+    use { 'preservim/tagbar' }
+
+    -- async completion in pure vim script for vim8 and neovim
+    use { 'prabirshrestha/asyncomplete.vim' }
+
 end)
 

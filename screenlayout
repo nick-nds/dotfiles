@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+
+SCREEN_COUNT=$(xrandr | grep " connected" | wc -l)
+HDMI=$(xrandr | grep "HDMI" | wc -l)
+eDP=$(xrandr | grep "eDP" | wc -l)
+LAYOUT=$1;
+
+# if single screen is connected
+if [ $SCREEN_COUNT == 1 ]
+then
+    # if only eDP is connected
+    if [ $eDP == 1 ]
+        then
+            exec xrandr --output eDP --primary --mode 1920x1080 --pos 0x1080 --rotate normal --output HDMI-A-0 --off --output DisplayPort-0 --off --output DisplayPort-1 --off
+    fi
+    # if only HDMI is connected
+    if [ $HDMI == 1 ]
+        then
+            exec xrandr --output eDP --off --output HDMI-A-0 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output DisplayPort-0 --off --output DisplayPort-1 --off
+    fi
+# if double screen is connected
+else
+    case $LAYOUT in
+        right-left)
+            exec xrandr --output eDP --primary --mode 1920x1080 --pos 1920x0 --rotate normal --output HDMI-A-0 --mode 1920x1080 --pos 0x0 --rotate normal --output DisplayPort-0 --off --output DisplayPort-1 --off
+        ;;
+        down-top)
+            exec xrandr --output eDP --primary --mode 1920x1080 --pos 0x1080 --rotate normal --output HDMI-A-0 --mode 1920x1080 --pos 0x0 --rotate normal --output DisplayPort-0 --off --output DisplayPort-1 --off
+        ;;
+    esac
+fi

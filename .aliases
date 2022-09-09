@@ -32,3 +32,4 @@ alias dc='docker-compose'
 alias gto='. git_worktree'
 
 alias python='python3'
+

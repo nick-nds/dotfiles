@@ -127,3 +127,11 @@ export PATH="$SPICETIFY_INSTALL:$PATH"
 # to fix termux icon problem
 export LC_ALL=en_IN.UTF-8
 export LANG=en_IN.UTF-8
+
+if [ -e /home/codeclouds-nitin/.nix-profile/etc/profile.d/nix.sh ]; then . /home/codeclouds-nitin/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+
+source ~/.nix-profile/etc/profile.d/nix.sh
+
+export PATH="$PATH:$HOME/.cargo/bin"
+export PATH="$PATH:$HOME/.local/bin/nvim-linux64/bin"
+export PATH="$PATH:/usr/local/go/bin"

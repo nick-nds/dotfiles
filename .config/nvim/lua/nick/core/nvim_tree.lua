@@ -84,6 +84,14 @@ M.setup = function()
 	  	  }
 	  	}
 	}
+
+
+    local opts = { noremap = true, silent = ture }
+    local kmap = vim.api.nvim_set_keymap
+
+    -- Nvim Tree maps
+    kmap('n', '<leader>n', '<cmd>NvimTreeToggle<cr>',  opts) --toggle NvimTree
+    kmap('n', '<leader>r', '<cmd>NvimTreeRefresh<cr>',  opts) --refresh NvimTree
 end
 
 return M

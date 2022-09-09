@@ -5,7 +5,7 @@
 dpi = 192
 # Main monitor, default to MONITOR environment variable.
 monitor = ${env:MONITOR:HDMI-A-0}
-monitor2 = ${env:MONITOR:eDP}
+# monitor2 = ${env:MONITOR:eDP}
 
 # bar position, apply globally
 width = 100%

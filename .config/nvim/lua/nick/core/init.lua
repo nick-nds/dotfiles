@@ -14,6 +14,11 @@ M.load = function()
 	require "nick.core.nvim_tree".setup()
 	require "nick.core.symbols_outline".setup()
 	require "nick.core.toggleterm".setup()
+	require "nick.core.git_worktree".setup()
+	-- require "nick.core.neuron".setup()
+	require "nick.core.harpoon".setup()
+	require "nick.core.telescope".setup()
+	require "nick.core.lsp".setup()
 end
 
 return M
