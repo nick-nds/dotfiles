@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/codeclouds-nitin/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -107,7 +107,7 @@ export LS_COLORS="$LS_COLORS:ow=1;34:tw=1;34:"
 # export PATH=$HOME/i3lock-blur:$PATH
 
 # export PATH="/home/nick/.pyenv/bin:$PATH"
-export PATH="/home/codeclouds-nitin/.local/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 # export PATH="/opt/lampp/bin:$PATH"
 TRIM=/opt/lampp/bin
 export PATH=$(echo "$PATH" | sed -e "s,:$TRIM:,:," )
@@ -116,19 +116,19 @@ export PATH=$(echo "$PATH" | sed -e "s,:$TRIM:,:," )
 
 export BROWSER=/usr/bin/firefox
 
-export GCM_PLAINTEXT_STORE_PATH=/home/codeclouds-nitin/.git_cred/token_ubuntu_codeclouds_pc
+export GCM_PLAINTEXT_STORE_PATH=$HOME/.git_cred/token_ubuntu_codeclouds_pc
 
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export PATH="$PATH:$HOME/.spicetify"
-export SPICETIFY_INSTALL="/home/codeclouds-nitin/.spicetify"
+export SPICETIFY_INSTALL="$HOME/.spicetify"
 export PATH="$SPICETIFY_INSTALL:$PATH"
 
 # to fix termux icon problem
 export LC_ALL=en_IN.UTF-8
 export LANG=en_IN.UTF-8
 
-if [ -e /home/codeclouds-nitin/.nix-profile/etc/profile.d/nix.sh ]; then . /home/codeclouds-nitin/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 
 source ~/.nix-profile/etc/profile.d/nix.sh
 

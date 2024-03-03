@@ -4,7 +4,7 @@
 # DPI value for HiDPI screen
 dpi = 192
 # Main monitor, default to MONITOR environment variable.
-monitor = ${env:MONITOR:HDMI-A-0}
+monitor = ${env:MONITOR:HDMI-1-0}
 # monitor2 = ${env:MONITOR:eDP}
 
 # bar position, apply globally
@@ -96,7 +96,7 @@ warn-temperature = 70
 
 # GitHub personal token, generate from https://github.com/settings/tokens/new?scopes=notifications&description=Notifier+for+Polybar
 # where select at least `notifications` option
-github-token = 00ed987a6d7efd532c5b4ca0849c2803228d1b5d
+# github-token = 
 
 # mullvad module setting
 mullvad-click-left = mullvad-vpn

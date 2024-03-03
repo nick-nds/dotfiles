@@ -4,5 +4,5 @@
 /.config/nvim/luacache_chunks
 /.config/nvim/luacache_modpaths
 /.config/nvim/lvim.shada
-/tags
+/tags*
 /lockscreen.png

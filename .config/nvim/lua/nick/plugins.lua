@@ -3,101 +3,93 @@ return require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
 
 	--telescope bitch
-	use {
-		'nvim-telescope/telescope.nvim',
-		requires = {
-			{ 'nvim-lua/plenary.nvim' },
-			{ 'BurntSushi/ripgrep' },
-		}
-	}
-	--telescope recommended dependcies
-	use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
-	use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
-	--lua `fork` of vim-web-devicons for neovim
-	use { 'kyazdani42/nvim-web-devicons' }
+	 use {
+	 	'nvim-telescope/telescope.nvim',
+	 	requires = {
+	 		{ 'nvim-lua/plenary.nvim' },
+	 		{ 'BurntSushi/ripgrep' },
+	 	}
+	 }
+	 --telescope recommended dependcies
+	 use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+	 use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+	 --lua `fork` of vim-web-devicons for neovim
+	 use { 'kyazdani42/nvim-web-devicons' }
 
-	--Auto configurations for LSP
-	use { 'prabirshrestha/vim-lsp' }
-	use { 'mattn/vim-lsp-settings' }
+	 --Auto configurations for LSP
+	 use { 'prabirshrestha/vim-lsp' }
+	 use { 'mattn/vim-lsp-settings' }
 
-	--autocomplete
-	use { 'nvim-lua/completion-nvim' }
+	 --autocomplete
+	 use { 'nvim-lua/completion-nvim' }
 
 
-	--indent guide
-	use { "lukas-reineke/indent-blankline.nvim" }
+	 --indent guide
+	 use { "lukas-reineke/indent-blankline.nvim" }
 
-	--Renaming tab labels
-	use { 'gcmt/taboo.vim' }
+	 --Renaming tab labels
+	 use { 'gcmt/taboo.vim' }
 
-	use { 'christoomey/vim-system-copy' }
+	 use { 'christoomey/vim-system-copy' }
 
-	--A git blame plugin for neovim inspired by VS Code's GitLens plugin
-	use { 'APZelos/blamer.nvim' }
+	 --A git blame plugin for neovim inspired by VS Code's GitLens plugin
+	 use { 'APZelos/blamer.nvim' }
 
-	-- a neovim theme written in lua
-	    --use { 'morhetz/gruvbox' }
-	use { 'folke/tokyonight.nvim' }
+	 -- a neovim theme written in lua
+	     --use { 'morhetz/gruvbox' }
+	 use { 'folke/tokyonight.nvim' }
 
-	--a git wrapper for vim
-	use { 'tpope/vim-fugitive' }
+	 --a git wrapper for vim
+	 use { 'tpope/vim-fugitive' }
 
-	use { 'nvim-lualine/lualine.nvim',
-		requires = { 'kyazdani42/nvim-web-devicons', opt = true }
-	}
+	 use { 'nvim-lualine/lualine.nvim',
+	 	requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+	 }
 
-	--tree like view for symbols
-	use { 'simrat39/symbols-outline.nvim' }
+	 --tree like view for symbols
+	 use { 'simrat39/symbols-outline.nvim' }
 
-	--a file explorer tree for neovim written in lua
-	use {
-		'kyazdani42/nvim-tree.lua',
-		requires = {
-		  'kyazdani42/nvim-web-devicons', -- optional, for file icon
-		},
-		config = function() require'nvim-tree'.setup {} end
-	}
+	 -- A file explorer tree for neovim written in lua 
+     use { 'nvim-tree/nvim-tree.lua' }
 
-	--emmet
-	use { 'mattn/emmet-vim' }
 
-	--completion
-	use { 'neovim/nvim-lspconfig' }
-	use { 'hrsh7th/cmp-nvim-lsp' }
-	use { 'hrsh7th/cmp-buffer' }
-	use { 'hrsh7th/cmp-path' }
-	use { 'hrsh7th/cmp-cmdline' }
-	use { 'hrsh7th/nvim-cmp' }
+	 --emmet
+	 use { 'mattn/emmet-vim' }
 
-	--For luasnip users.
-	use { 'L3MON4D3/LuaSnip' }
-	use { 'saadparwaiz1/cmp_luasnip' }
+	 --completion
+	 use { 'neovim/nvim-lspconfig' }
+	 use { 'hrsh7th/cmp-nvim-lsp' }
+	 use { 'hrsh7th/cmp-buffer' }
+	 use { 'hrsh7th/cmp-path' }
+	 use { 'hrsh7th/cmp-cmdline' }
+	 use { 'hrsh7th/nvim-cmp' }
 
-	--neovim lua plugin to help easily manage multiple terminal windows
-	use { "akinsho/toggleterm.nvim" }
+	 --For luasnip users.
+	 use { 'L3MON4D3/LuaSnip' }
+	 use { 'saadparwaiz1/cmp_luasnip' }
 
-	use { "lunarvim/onedarker.nvim" }
+	 --neovim lua plugin to help easily manage multiple terminal windows
+	 use { "akinsho/toggleterm.nvim" }
 
-	--indent guide
-	-- use { "nathanaelkane/vim-indent-guides" }
+	 use { "lunarvim/onedarker.nvim" }
 
-	--gruvbox
-	use { 'gruvbox-community/gruvbox' }
+	 --indent guide
+	 -- use { "nathanaelkane/vim-indent-guides" }
 
-	--Nord theme
-	use { 'arcticicestudio/nord-vim' , branch  = 'develop' }
+	 --gruvbox
+	 use { 'gruvbox-community/gruvbox' }
 
-	-- git-worktree
-	use { 'ThePrimeagen/git-worktree.nvim' }
+	 --Nord theme
+	 use { 'arcticicestudio/nord-vim' }
 
-	-- vim's popup api to neovim
-	use { 'nvim-lua/popup.nvim' }
+	 -- git-worktree
+	 use { 'ThePrimeagen/git-worktree.nvim' }
 
-	-- Primeageon's Harpoon
-	use { 'ThePrimeagen/harpoon' }
-    
-	-- zettlekasten notes in vim
-	-- use { 'oberblastmeister/neuron.nvim' }
+	 -- vim's popup api to neovim
+	 use { 'nvim-lua/popup.nvim' }
+
+	 -- Primeageon's Harpoon
+	 use { 'ThePrimeagen/harpoon' }
 
     -- tpope's comment
     use { 'tpope/vim-commentary' }
@@ -114,5 +106,12 @@ return require('packer').startup(function(use)
     -- async completion in pure vim script for vim8 and neovim
     use { 'prabirshrestha/asyncomplete.vim' }
 
-end)
+    -- Neovim plugin for GitHub Copilot
+    use { 'github/copilot.vim' }
 
+    use "mfussenegger/nvim-dap"
+    use "rcarriga/nvim-dap-ui"
+    use "theHamsta/nvim-dap-virtual-text"
+    use "nvim-telescope/telescope-dap.nvim"
+
+end)

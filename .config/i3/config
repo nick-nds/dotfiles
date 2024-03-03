@@ -24,6 +24,8 @@ set $mod Mod4
 # is used in the bar {} block below.
 font pango:Roboto 14
 
+workspace_auto_back_and_forth yes
+
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:DejaVu Sans Mono 8
@@ -45,7 +47,7 @@ exec --no-startup-id nm-applet
 ### Applications: ###
 
 set $preferredTerminalEmulator /usr/bin/alacritty
-set $preferredBrowser /usr/bin/firefox
+set $preferredBrowser /usr/bin/firedragon
 set $preferredFileManager /usr/bin/nautilus
 set $preferredMailClient /usr/bin/thunderbird
 set $preferredTextEditor /usr/bin/nvim
@@ -61,6 +63,7 @@ bindsym $mod+F1 exec $preferredBrowser;focus
 bindsym $mod+F2 exec $preferredFileManager;focus
 bindsym $mod+F3 exec $preferredMailClient;focus
 bindsym $mod+F4 exec $preferredTextEditor;focus
+bindsym $mod+F5 exec firefox -p YouTube;focus
 
 
 ### Screen Capturing & Print Screen: ###
@@ -77,8 +80,12 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 
 
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+# bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
+# bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+
+# Screen brightness controls
+bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'brightness up'"
+bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness down'"
 
 
 # Media player controls
@@ -107,8 +114,8 @@ bindsym $mod+q kill
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec launcher
-
+# bindsym $mod+d exec rofi -show drun
+bindsym $mod+d exec $HOME/.config/polybar/hack/scripts/launcher.sh
 
 # change focus
 bindsym $mod+h focus left
@@ -172,6 +179,17 @@ set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
+# set $ws0 "0; "
+# set $ws1 "1; "
+# set $ws2 "2; "
+# set $ws3 "3; "
+# set $ws4 "4; "
+# set $ws5 "5; "
+# set $ws6 "6; "
+# set $ws7 "7; "
+# set $ws8 "8; "
+# set $ws9 "9; "
+
 
 # switch to workspace
 bindsym $mod+0 workspace $ws0
@@ -197,18 +215,22 @@ bindsym $mod+Shift+7 move container to workspace $ws7
 bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 
-assign [class="firefox"] $ws1
+assign [class="firedragon"] $ws1
 assign [class="Alacritty"] $ws2
 assign [class="Google-chrome"] $ws3
+assign [class="thunderbird"] $ws4
+assign [class="obsidian"] $ws5
 assign [class="Skype"] $ws7
 assign [class="Postman"] $ws8
-for_window [class="Spotify"] move to workspace $ws9
+assign [class="Spotube"] $ws9
+# for_window [class="Spotify"] move to workspace $ws9
 
-workspace $ws0 output HDMI-A-0
-workspace $ws1 output HDMI-A-0
-workspace $ws2 output HDMI-A-0
-workspace $ws3 output HDMI-A-0
-workspace $ws4 output HDMI-A-0
+workspace $ws0 output HDMI-1-0
+workspace $ws1 output HDMI-1-0
+workspace $ws2 output HDMI-1-0
+# workspace $ws2 output eDP
+workspace $ws3 output eDP
+workspace $ws4 output HDMI-1-0
 workspace $ws5 output eDP
 workspace $ws6 output eDP
 workspace $ws7 output eDP
@@ -256,16 +278,16 @@ client.focused_inactive  	$inactive-bg-color		$inactive-bg-color		$inactive-text
 client.urgent				$urgent-bg-color		$urgent-bg-color		$text-color				#88c0d0
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-# bar {
-#         status_command i3blocks
-# 		colors {
-# 			background $bg-color
-# 			#						border					background				text
-# 			focused_workspace		$bg-color				$bg-color				$text-color
-# 			inactive_workspace		$inactive-bg-color		$inactive-bg-color		$inactive-text-color
-# 			urgent_workspace		$urgent-bg-color		$urgent-bg-color		$text-color
-# 		}
-# }
+#bar {
+#        status_command i3blocks
+#		colors {
+#			background $bg-color
+#			#						border					background				text
+#			focused_workspace		$bg-color				$bg-color				$text-color
+#			inactive_workspace		$inactive-bg-color		$inactive-bg-color		$inactive-text-color
+#			urgent_workspace		$urgent-bg-color		$urgent-bg-color		$text-color
+#		}
+#}
 
 # Set shut down, restart and locking features
 # bindsym $mod+0 mode "$mode_system"
@@ -285,7 +307,8 @@ client.urgent				$urgent-bg-color		$urgent-bg-color		$text-color				#88c0d0
 # }
 
 bindsym $mod+Ctrl+l exec --no-startup-id i3lock -c 3b4252
-bindsym $mod+x exec $HOME/.config/rofi/powermenu/powermenu.sh
+# bindsym $mod+x exec $HOME/.config/rofi/powermenu/powermenu.sh
+bindsym $mod+x exec $HOME/.config/polybar/hack/scripts/powermenu.sh
 
 # remove border and title
 for_window [class="^.*"] border pixel 0
@@ -298,7 +321,7 @@ focus_follows_mouse no
 
 # setup dual monitor
 # right-left
-exec_always xrandr --output eDP --primary --mode 1920x1080 --pos 1920x0 --rotate normal --output HDMI-A-0 --mode 1920x1080 --pos 0x0 --rotate normal --output DisplayPort-0 --off --output DisplayPort-1 --off
+# exec_always xrandr --output eDP --primary --mode 1920x1080 --pos 1920x0 --rotate normal --output HDMI-A-0 --mode 1920x1080 --pos 0x0 --rotate normal --output DisplayPort-0 --off --output DisplayPort-1 --off
 # down-top
 # exec_always xrandr --output eDP --primary --mode 1920x1080 --pos 0x1080 --rotate normal --output HDMI-A-0 --mode 1920x1080 --pos 0x0 --rotate normal --output DisplayPort-0 --off --output DisplayPort-1 --off
 
@@ -311,8 +334,14 @@ bindsym $mod+m exec i3-input -F 'mark %s' -l 1 -P 'Mark: '
 bindsym $mod+g exec i3-input -F '[con_mark="%s"] focus' -l 1 -P 'Goto: '
 
 # launch on startup
-exec firefox
+exec firedragon
 exec alacritty
-exec spotify
+exec thunderbird
+exec google-chrome-stable
+exec /usr/bin/obsidian
 
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec_always autorandr --change
+# exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec_always --no-startup-id  $HOME/.config/polybar/hack/scripts/pywal.sh $HOME/wallpaper/
+exec_always --no-startup-id  $HOME/.config/polybar/hack/launch.sh
+# exec_always bash ~/.config/polybar/hack/scripts/colors-dark --blue-gray
