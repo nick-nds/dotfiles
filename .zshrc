@@ -88,6 +88,8 @@ else
   export EDITOR='nvim'
 fi
 
+export SUDO_EDITOR='nvim'
+
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
@@ -128,10 +130,21 @@ export PATH="$SPICETIFY_INSTALL:$PATH"
 export LC_ALL=en_IN.UTF-8
 export LANG=en_IN.UTF-8
 
-if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+# if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 
-source ~/.nix-profile/etc/profile.d/nix.sh
+# source ~/.nix-profile/etc/profile.d/nix.sh
 
 export PATH="$PATH:$HOME/.cargo/bin"
-export PATH="$PATH:$HOME/.local/bin/nvim-linux64/bin"
+export PATH="$PATH:/opt/nvim-linux64/bin"
 export PATH="$PATH:/usr/local/go/bin"
+export PATH="$PATH:/snap/bin"
+
+fpath+=${ZDOTDIR:-~}/.zsh_functions
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+  exec tmux a
+fi

@@ -20,8 +20,8 @@ M.setup = function()
 
     dap.adapters.php = {
         type = 'executable',
-        command = '/home/nick/.nvm/versions/node/v16.14.2/bin/node',
-        args = { '/home/nick/.config/nvim/vscode-php-debug/out/phpDebug.js' }
+        command = '/home/codeclouds-nitin/.nvm/versions/node/v16.14.2/bin/node',
+        args = { '/home/codeclouds-nitin/.debuggers/vscode-php-debug/out/phpDebug.js' }
     }
 
     dap.configurations.php = {
@@ -31,7 +31,7 @@ M.setup = function()
             name = 'Listen for Xdebug',
             port = 9003,
             pathMappings = {
-                ['/var/www/html/html'] = vim.fn.getcwd() .. '/',
+                ['/var/www/unify-platform-v3'] = vim.fn.getcwd() .. '/',
             }
         }
     }
@@ -62,6 +62,7 @@ M.setup = function()
       local widgets = require('dap.ui.widgets')
       widgets.centered_float(widgets.scopes)
     end)
+    kmap('n', '<Leader>dt', "<cmd>lua require('dapui').toggle()<cr>", opts)
 
 end
 

@@ -37,7 +37,7 @@ workspace_auto_back_and_forth yes
 # screen before suspend. Use loginctl lock-session to lock your screen.
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
-exec_always --no-startup-id feh --bg-fill ~/dotfiles/wallpaper.png
+# exec_always --no-startup-id feh --bg-fill ~/dotfiles/wallpaper.png
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
@@ -46,9 +46,9 @@ exec --no-startup-id nm-applet
 
 ### Applications: ###
 
-set $preferredTerminalEmulator /usr/bin/alacritty
-set $preferredBrowser /usr/bin/firedragon
-set $preferredFileManager /usr/bin/nautilus
+set $preferredTerminalEmulator /usr/local/bin/alacritty
+set $preferredBrowser /snap/bin/firefox
+set $preferredFileManager /usr/bin/thunar
 set $preferredMailClient /usr/bin/thunderbird
 set $preferredTextEditor /usr/bin/nvim
 set $preferredScreenCaptureTool /usr/bin/flameshot gui
@@ -215,7 +215,7 @@ bindsym $mod+Shift+7 move container to workspace $ws7
 bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 
-assign [class="firedragon"] $ws1
+assign [class="firefox"] $ws1
 assign [class="Alacritty"] $ws2
 assign [class="Google-chrome"] $ws3
 assign [class="thunderbird"] $ws4
@@ -224,6 +224,9 @@ assign [class="Skype"] $ws7
 assign [class="Postman"] $ws8
 assign [class="Spotube"] $ws9
 # for_window [class="Spotify"] move to workspace $ws9
+
+bindsym $mod+Shift+s [class="Skype"] focus
+bindsym $mod+Shift+p [class="Postman"] focus
 
 workspace $ws0 output HDMI-1-0
 workspace $ws1 output HDMI-1-0
@@ -325,6 +328,7 @@ focus_follows_mouse no
 # down-top
 # exec_always xrandr --output eDP --primary --mode 1920x1080 --pos 0x1080 --rotate normal --output HDMI-A-0 --mode 1920x1080 --pos 0x0 --rotate normal --output DisplayPort-0 --off --output DisplayPort-1 --off
 
+focus_on_window_activation urgent
 
 # vim like marks
 # read 1 character and mark the current window with this character
@@ -334,13 +338,16 @@ bindsym $mod+m exec i3-input -F 'mark %s' -l 1 -P 'Mark: '
 bindsym $mod+g exec i3-input -F '[con_mark="%s"] focus' -l 1 -P 'Goto: '
 
 # launch on startup
-exec firedragon
+exec /usr/bin/firefox -P "Codeclouds"
+exec $preferredBrowser
+exec skype
 exec alacritty
 exec thunderbird
 exec google-chrome-stable
-exec /usr/bin/obsidian
+# exec $HOME/dotfiles/scripts/start-tmux
+# exec /usr/bin/obsidian
 
-exec_always autorandr --change
+# exec_always autorandr --change
 # exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id  $HOME/.config/polybar/hack/scripts/pywal.sh $HOME/wallpaper/
 exec_always --no-startup-id  $HOME/.config/polybar/hack/launch.sh

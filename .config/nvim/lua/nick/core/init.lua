@@ -10,7 +10,7 @@ M.load = function()
 	vim.cmd[[let g:nord_bold_vertical_split_line = 1]]
 	vim.cmd[[let g:nord_uniform_diff_background = 1]]
 	vim.cmd[[colorscheme nord]]
-	vim.g.copilot_node_command = "~/.nvm/versions/node/v16.13.2/bin/node"
+	vim.g.copilot_node_command = "~/.nvm/versions/node/v20.11.1/bin/node"
 	vim.g.copilot_debug = 1
 	require "nick.core.lualine".setup()
 	require "nick.core.nvim_cmp".setup()
