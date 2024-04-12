@@ -6,3 +6,4 @@
 /.config/nvim/lvim.shada
 /tags*
 /lockscreen.png
+/.config/nvim/lazy-lock.json

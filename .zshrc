@@ -148,3 +148,17 @@ export NVM_DIR="$HOME/.nvm"
 if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
   exec tmux a
 fi
+fpath+=${ZDOTDIR:-~}/.zsh_functions
+
+eval $(thefuck --alias --enable-experimental-instant-mode)
+
+# pnpm
+export PNPM_HOME="/home/codeclouds-nitin/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
+export DENO_INSTALL="/home/codeclouds-nitin/.deno"
+export PATH="$DENO_INSTALL/bin:$PATH"

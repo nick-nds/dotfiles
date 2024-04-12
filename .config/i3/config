@@ -49,7 +49,7 @@ exec --no-startup-id nm-applet
 set $preferredTerminalEmulator /usr/local/bin/alacritty
 set $preferredBrowser /snap/bin/firefox
 set $preferredFileManager /usr/bin/thunar
-set $preferredMailClient /usr/bin/thunderbird
+set $preferredMailClient /opt/thunderbird/thunderbird
 set $preferredTextEditor /usr/bin/nvim
 set $preferredScreenCaptureTool /usr/bin/flameshot gui
 
@@ -115,7 +115,7 @@ bindsym $mod+q kill
 
 # start dmenu (a program launcher)
 # bindsym $mod+d exec rofi -show drun
-bindsym $mod+d exec $HOME/.config/polybar/hack/scripts/launcher.sh
+bindsym $mod+d exec $HOME/.config/polybar/scripts/launcher.sh
 
 # change focus
 bindsym $mod+h focus left
@@ -215,6 +215,7 @@ bindsym $mod+Shift+7 move container to workspace $ws7
 bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 
+assign [class="pypahr"] $ws0
 assign [class="firefox"] $ws1
 assign [class="Alacritty"] $ws2
 assign [class="Google-chrome"] $ws3
@@ -224,6 +225,9 @@ assign [class="Skype"] $ws7
 assign [class="Postman"] $ws8
 assign [class="Spotube"] $ws9
 # for_window [class="Spotify"] move to workspace $ws9
+
+# run skype app in full Screen
+for_window [class="Skype"] fullscreen enable
 
 bindsym $mod+Shift+s [class="Skype"] focus
 bindsym $mod+Shift+p [class="Postman"] focus
@@ -311,7 +315,7 @@ client.urgent				$urgent-bg-color		$urgent-bg-color		$text-color				#88c0d0
 
 bindsym $mod+Ctrl+l exec --no-startup-id i3lock -c 3b4252
 # bindsym $mod+x exec $HOME/.config/rofi/powermenu/powermenu.sh
-bindsym $mod+x exec $HOME/.config/polybar/hack/scripts/powermenu.sh
+bindsym $mod+x exec $HOME/.config/polybar/scripts/powermenu.sh
 
 # remove border and title
 for_window [class="^.*"] border pixel 0
@@ -338,7 +342,9 @@ bindsym $mod+m exec i3-input -F 'mark %s' -l 1 -P 'Mark: '
 bindsym $mod+g exec i3-input -F '[con_mark="%s"] focus' -l 1 -P 'Goto: '
 
 # launch on startup
-exec /usr/bin/firefox -P "Codeclouds"
+exec /snap/bin/firefox -P "Codeclouds"
+exec /usr/bin/pypahr
+exec /usr/bin/Postman
 exec $preferredBrowser
 exec skype
 exec alacritty
@@ -349,6 +355,5 @@ exec google-chrome-stable
 
 # exec_always autorandr --change
 # exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-exec_always --no-startup-id  $HOME/.config/polybar/hack/scripts/pywal.sh $HOME/wallpaper/
-exec_always --no-startup-id  $HOME/.config/polybar/hack/launch.sh
-# exec_always bash ~/.config/polybar/hack/scripts/colors-dark --blue-gray
+exec_always --no-startup-id  $HOME/.config/polybar/scripts/pywal.sh $HOME/wallpaper/
+exec_always --no-startup-id  $HOME/.config/polybar/launch.sh

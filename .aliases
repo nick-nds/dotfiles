@@ -29,6 +29,8 @@ alias phpunit='docker compose run -w=/var/www/html/$BRANCH phpunit'
 alias up='docker compose up'
 alias down='docker compose down'
 
+alias docker-rm='docker rm $(docker ps -aq --filter "status=exited")'
+
 
 alias scomposer='docker compose run -w=/var/www/html/$BRANCH/web composer'
 alias sartisan='docker compose run -w=/var/www/html/$BRANCH/web artisan'
