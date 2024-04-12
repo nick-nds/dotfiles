@@ -11,8 +11,6 @@ return {
 	 --A git blame plugin for neovim inspired by VS Code's GitLens plugin
 	 'APZelos/blamer.nvim',
 
-     'mattn/vim-lsp-settings',
-
 	 --emmet
 	 'mattn/emmet-vim',
 
@@ -28,7 +26,6 @@ return {
     -- Vim plugin that displays tags in a window, ordered by scope
     'preservim/tagbar',
 
-    -- Neovim plugin for GitHub Copilot
-    -- use { 'github/copilot.vim' }
-    'zbirenbaum/copilot.lua',
+    -- A lightweight Vim/Neovim plugin to display buffers and tabs in the tabline 
+    -- 'pacha/vem-tabline',
 }

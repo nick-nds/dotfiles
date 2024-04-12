@@ -1,12 +1,11 @@
 return {
     'prabirshrestha/vim-lsp',
+    lazy = false,
     dependencies = {
         { 'mattn/vim-lsp-settings' },
         { 'prabirshrestha/asyncomplete.vim' },
         { 'prabirshrestha/asyncomplete-lsp.vim' },
     },
-    config = function()
-    end,
     keys = {
         { '<leader>gd', '<cmd>LspDefinition<cr>' },
         { '<leader>gr', '<cmd>LspReferences<cr>' },
