@@ -1,0 +1,27 @@
+#!/bin/sh
+DIR=$HOME/dotfiles/i3lock-blur
+import -window root $DIR/lockscreen.png
+convert $DIR/lockscreen.png -filter Gaussian -blur 0x8 $DIR/lockscreen.png
+
+# choose a random image from the directory ./overlap
+# change the size of the randomly chosen image as 1/4 of the screen size
+# set the chosen image overlayed on top of the lockscreen.png
+
+chosen=$(ls $DIR/overlap | shuf -n 1)
+# convert overlap/$chosen -resize 25% chosen.png
+
+# set x and y axis so that the image is placed on bottom right or left corner
+place_x=$((RANDOM % 100))
+place_y=$((RANDOM % 100))
+
+# # randomly set x-axis as positive or negative
+# if [ $((RANDOM % 2)) -eq 0 ]; then
+#     place_x=-$place_x
+# fi
+
+convert $DIR/lockscreen.png $DIR/overlay/$chosen -geometry +$place_x%+$place_y% -composite $DIR/lockscreen.png
+# convert lockscreen.png overlay/$chosen -geometry +$place_x%+$place_y% -composite $DIR/lockscreen.png
+
+# convert lockscreen.png chosen.png -gravity center -composite lockscreen.png
+
+i3lock -i $DIR/lockscreen.png -c 000000

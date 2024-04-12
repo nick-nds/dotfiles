@@ -1,4 +1,0 @@
-#!/bin/sh
-import -window root lockscreen.png
-convert lockscreen.png -filter Gaussian -blur 0x8 lockscreen.png
-i3lock -i lockscreen.png -c 000000

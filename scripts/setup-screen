@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+# check if HDMI is connected
+# if it is, disable the internal display
+
+# use regex to get HDMI screen
+# HDMI name can be HDMI-1 or HDMI-1-0
+if xrandr | grep "HDMI-[0-9]\+-\?[0-9]* connected"; then
+    HDMI="$(xrandr -q | grep 'HDMI' | cut -d ' ' -f1)"
+    xrandr --output $HDMI --off
+    xrandr --output $HDMI --auto
+    # check if eDP is active
+    active=$(xrandr --listactivemonitors | grep eDP1)
+    # if it is active turn it off
+    if [ -n "$active" ]; then
+        xrandr --output eDP1 --off
+    fi
+    echo $HDMI
+else
+    # set eDP active
+    xrandr --output eDP1 --auto
+    echo "No HDMI screen connected"
+fi
+# xrandr --output eDP1 --auto
