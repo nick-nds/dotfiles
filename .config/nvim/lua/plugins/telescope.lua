@@ -18,5 +18,6 @@ return {
         { '<leader>gg', '<cmd>lua require("telescope.builtin").git_files()<cr>' },
         { '<leader>GG', '<cmd>lua require("telescope.builtin").live_grep()<cr>' },
         { '<leader>rr', '<cmd>lua require("telescope.builtin").registers()<cr>' },
+        { '<leader>fb', '<cmd>lua require("telescope.builtin").buffers()<cr>' },
     }
 }
