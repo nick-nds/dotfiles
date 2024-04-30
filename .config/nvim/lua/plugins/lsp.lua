@@ -3,8 +3,6 @@ return {
     lazy = false,
     dependencies = {
         { 'mattn/vim-lsp-settings' },
-        { 'prabirshrestha/asyncomplete.vim' },
-        { 'prabirshrestha/asyncomplete-lsp.vim' },
     },
     keys = {
         { '<leader>gd', '<cmd>LspDefinition<cr>' },
