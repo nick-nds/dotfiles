@@ -10,7 +10,8 @@ return {
         { 'onsails/lspkind.nvim' },
         { 'rcarriga/cmp-dap' },
         { 'gbprod/yanky.nvim' },
-        { 'chrisgrieser/cmp_yanky', lazy = false }
+        { 'chrisgrieser/cmp_yanky' },
+        { 'delphinus/cmp-ctags' }
     },
     config = function()
         local cmp = require("cmp")
@@ -65,6 +66,7 @@ return {
                 { name = 'cmdline' },
                 { name = 'copilot' },
                 { name = 'cmp_yanky' },
+                { name = 'ctags' },
             },
         })
 
