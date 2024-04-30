@@ -46,7 +46,7 @@ return {
             }
         }
     end,
-    key = {
+    keys = {
         { '<F5>', "<cmd>lua require('dap').continue()<cr>" },
         { '<F10>', "<cmd>lua require('dap').step_over()<cr>" },
         { '<F11>', "<cmd>lua require('dap').step_into()<cr>" },
@@ -62,13 +62,20 @@ return {
         { '<Leader>dp', function() require('dap.ui.widgets').preview() end, mode = { "n", "v" } },
 
         { '<Leader>df', function()
-          local widgets = require('dap.ui.widgets')
-          widgets.centered_float(widgets.frames)
+            local widgets = require('dap.ui.widgets')
+            widgets.centered_float(widgets.frames)
         end },
 
         { '<Leader>ds', function()
-          local widgets = require('dap.ui.widgets')
-          widgets.centered_float(widgets.scopes)
+            local widgets = require('dap.ui.widgets')
+            widgets.centered_float(widgets.scopes)
+        end },
+
+        { '<Leader>dr', function()
+            require('dapui').float_element('repl', {
+                enter = true,
+                position = 'center'
+            })
         end },
 
         { '<Leader>dt', "<cmd>lua require('dapui').toggle()<cr>" },
