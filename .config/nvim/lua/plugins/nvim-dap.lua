@@ -54,7 +54,6 @@ return {
         { '<Leader>db', "<cmd>lua require('dap').toggle_breakpoint()<cr>" },
         { '<Leader>dB', "<cmd>lua require('dap').set_breakpoint()<cr>" },
         { '<Leader>dl', "<cmd>lua require('dap').set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<cr>" },
-        { '<Leader>dr', "<cmd>lua require('dap').repl.open()<cr>" },
         { '<Leader>dl', "<cmd>lua require('dap').run_last()<cr>" },
 
         { '<Leader>dh', function() require('dap.ui.widgets').hover() end, mode = { "n", "v" } },

@@ -6,7 +6,11 @@ return {
         { "nvim-telescope/telescope.nvim" },
     },
     config = function()
-        require("harpoon").setup()
+        require("harpoon").setup({
+            global_settings = {
+                save_on_toggle = true,
+            },
+        })
     end,
     keys = {
         { '<leader>ha', '<cmd>lua require("harpoon"):list():add()<cr>' },

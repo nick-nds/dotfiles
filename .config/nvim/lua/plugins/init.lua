@@ -1,7 +1,7 @@
 return {
 
 	 --telescope recommended dependcies
-	 { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate' },
+	 { 'nvim-treesitter/nvim-treesitter', tag = 'v0.9.1', build = ':TSUpdate' },
 	 {'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
 	 --lua `fork` of vim-web-devicons for neovim
 	 'kyazdani42/nvim-web-devicons',
