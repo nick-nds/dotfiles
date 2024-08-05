@@ -111,20 +111,8 @@ export LS_COLORS="$LS_COLORS:ow=1;34:tw=1;34:"
 # export PATH="/home/nick/.pyenv/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 # export PATH="/opt/lampp/bin:$PATH"
-TRIM=/opt/lampp/bin
-export PATH=$(echo "$PATH" | sed -e "s,:$TRIM:,:," )
-# eval "$(pyenv init -)"
-# eval "$(pyenv virtualenv-init -)"
-
-export BROWSER=/usr/bin/firefox
-
-export GCM_PLAINTEXT_STORE_PATH=$HOME/.git_cred/token_ubuntu_codeclouds_pc
-
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export PATH="$PATH:$HOME/.spicetify"
-export SPICETIFY_INSTALL="$HOME/.spicetify"
-export PATH="$SPICETIFY_INSTALL:$PATH"
 
 # to fix termux icon problem
 export LC_ALL=en_IN.UTF-8
@@ -138,6 +126,7 @@ export PATH="$PATH:$HOME/.cargo/bin"
 export PATH="$PATH:/opt/nvim-linux64/bin"
 export PATH="$PATH:/usr/local/go/bin"
 export PATH="$PATH:/snap/bin"
+export PATH="$PATH:$HOME/.local/share/uctags"
 
 fpath+=${ZDOTDIR:-~}/.zsh_functions
 
@@ -145,9 +134,9 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
-  exec tmux a
-fi
+# if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+#   exec tmux a
+# fi
 fpath+=${ZDOTDIR:-~}/.zsh_functions
 
 eval $(thefuck --alias --enable-experimental-instant-mode)

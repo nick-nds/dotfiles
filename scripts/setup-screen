@@ -1,24 +1,30 @@
 #!/usr/bin/env bash
 
+HDMI="$(xrandr -q | grep 'HDMI' | cut -d ' ' -f1)"
+eDP="$(xrandr -q | grep 'eDP' | cut -d ' ' -f1)"
+
+# if any arg is passed turn on eDP and exit
+if [ $# -gt 0 ]; then
+    xrandr --output $eDP --mode 1920x1080R
+    exit
+fi
 # check if HDMI is connected
 # if it is, disable the internal display
-
 # use regex to get HDMI screen
 # HDMI name can be HDMI-1 or HDMI-1-0
 if xrandr | grep "HDMI-[0-9]\+-\?[0-9]* connected"; then
-    HDMI="$(xrandr -q | grep 'HDMI' | cut -d ' ' -f1)"
-    xrandr --output $HDMI --off
-    xrandr --output $HDMI --auto
-    # check if eDP is active
-    active=$(xrandr --listactivemonitors | grep eDP1)
-    # if it is active turn it off
-    if [ -n "$active" ]; then
-        xrandr --output eDP1 --off
+    # Check if HDMI has resolution set using regex to xrandr -q
+    HDMI_OUTPUT=$(xrandr -q | grep -oP "HDMI-[0-9]\+-\?[0-9]* connected")
+    if [ -z "$HDMI_OUTPUT" ]; then
+        xrandr --output $HDMI --off
+        xrandr --output $HDMI --auto
+        xrandr --output $eDP --off
     fi
-    echo $HDMI
 else
-    # set eDP active
-    xrandr --output eDP1 --auto
-    echo "No HDMI screen connected"
+    # check if eDP is connected with resolution set
+    if xrandr -q | grep "eDP-[0-9]\+-\?[0-9]* connected [0-9]\+x[0-9]\+"; then
+        continue
+    else
+        xrandr --output $eDP --mode 1920x1080R
+    fi
 fi
-# xrandr --output eDP1 --auto

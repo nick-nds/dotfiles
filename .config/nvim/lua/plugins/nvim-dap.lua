@@ -1,5 +1,6 @@
 return {
     'mfussenegger/nvim-dap',
+    lazy=false,
     dependencies = {
         {
             "rcarriga/nvim-dap-ui",
@@ -30,20 +31,39 @@ return {
 
         dap.adapters.php = {
             type = 'executable',
-            command = '/home/codeclouds-nitin/.nvm/versions/node/v16.14.2/bin/node',
-            args = { '/home/codeclouds-nitin/.debuggers/vscode-php-debug/out/phpDebug.js' }
+            command = '/home/nick/.nvm/versions/node/v16.14.2/bin/node',
+            args = { '/home/nick/.debuggers/vscode-php-debug/out/phpDebug.js' }
         }
+
+        -- get current working directory
+        local cwd = vim.fn.getcwd()
+        -- get last folder name of current working directory
+        local server_path = function(project)
+            local branch = cwd:match("([^/]+)$")
+            return '/app/' .. project .. '/' .. branch
+        end
+        local branch = cwd:match("([^/]+)$")
 
         dap.configurations.php = {
             {
                 type = 'php',
                 request = 'launch',
-                name = 'Listen for Xdebug',
+                name = 'Listen for Xdebug backend',
                 port = 9003,
                 pathMappings = {
-                    ['/var/www/unify-platform-v3'] = vim.fn.getcwd() .. '/',
+                    [server_path('apnithali.test')] = cwd .. '/'
+                    -- ['/var/www/html/' .. branch] = cwd .. '/'
                 }
-            }
+            },
+            -- {
+            --     type = 'php',
+            --     request = 'launch',
+            --     name = 'Listen for Xdebug apnithali',
+            --     port = 9003,
+            --     pathMappings = {
+            --         [server_path('apnithali.test')] = cwd .. '/'
+            --     }
+            -- }
         }
     end,
     keys = {
