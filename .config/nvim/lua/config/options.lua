@@ -5,9 +5,9 @@ return {
     hidden = true,
     number = true,
     hlsearch = false,
-    shiftwidth = 4,
-    tabstop = 4,
-    softtabstop = 4,
+    shiftwidth = 2,
+    tabstop = 2,
+    softtabstop = 2,
     autoindent = true,
     smartindent = true,
     expandtab = true,
@@ -29,4 +29,5 @@ return {
     swapfile = false,
     signcolumn = "yes",
     showmode = false,
+    colorcolumn = '120',
 }

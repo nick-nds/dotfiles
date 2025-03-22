@@ -85,10 +85,10 @@ source $ZSH/oh-my-zsh.sh
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
 else
-  export EDITOR='nvim'
+  export EDITOR='/opt/nvim-linux-x86_64/bin/nvim'
 fi
 
-export SUDO_EDITOR='nvim'
+export SUDO_EDITOR='/opt/nvim-linux-x86_64/bin/nvim'
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -123,10 +123,11 @@ export LANG=en_IN.UTF-8
 # source ~/.nix-profile/etc/profile.d/nix.sh
 
 export PATH="$PATH:$HOME/.cargo/bin"
-export PATH="$PATH:/opt/nvim-linux64/bin"
-export PATH="$PATH:/usr/local/go/bin"
+export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
+export PATH="$PATH:$HOME/.local/go/bin"
 export PATH="$PATH:/snap/bin"
 export PATH="$PATH:$HOME/.local/share/uctags"
+export PATH="$PATH:/opt/jdk-21.0.4+7/bin"
 
 fpath+=${ZDOTDIR:-~}/.zsh_functions
 
@@ -151,3 +152,11 @@ esac
 
 export DENO_INSTALL="/home/codeclouds-nitin/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
+
+export ANDROID_HOME=$HOME/Android/Sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+
+export JAVA_HOME="/opt/jdk-21.0.4+7"
+
+export PATH="$HOME/.config/composer/vendor/bin:$PATH"

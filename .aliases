@@ -19,25 +19,18 @@ alias wallpaper='/home/nick/wallpaper/wallpaper.py 1>/dev/null 2>&1 &'
 alias dcrun='docker compose run'
 alias dc='docker compose'
 # alias composer='docker compose run -w=/var/www/html/$BRANCH composer'
-alias composer='docker exec -w /app/$PROJECT/$BRANCH php82 composer'
+alias domposer='docker exec -u 1000 -w /app/$PROJECT/$BRANCH $CONTAINER composer'
 # alias artisan='docker compose run -w=/var/www/html/$BRANCH artisan'
-alias artisan='docker exec -w /app/$PROJECT/$BRANCH php82 php artisan'
-alias phpunit='docker compose run -w=/var/www/html/$BRANCH phpunit'
+alias artisan='docker exec -u 1000 -it -w /app/$PROJECT/$BRANCH $CONTAINER php artisan'
+alias phpunit='docker exec -u 1000 -it -w /app/$PROJECT/$BRANCH $CONTAINER php ./vendor/bin/phpunit'
+# alias phpunit='docker compose run -w=/var/www/html/$BRANCH phpunit'
 alias up='docker compose up'
 alias down='docker compose down'
 
 alias docker-rm='docker rm $(docker ps -aq --filter "status=exited")'
 
-
-alias scomposer='docker compose run -w=/var/www/html/$BRANCH/web composer'
-alias sartisan='docker compose run -w=/var/www/html/$BRANCH/web artisan'
-alias sphpunit='docker compose run -w=/var/www/html/$BRANCH/web phpunit'
-
-# alias php='/opt/lampp/bin/php'
-# alias composer='/opt/lampp/bin/php /usr/local/bin/composer'
-
-# alias php='/usr/bin/php7.2'
-
 alias gto='. git_worktree'
 
 alias python='python3'
+
+alias plaude='$HOME/.nvm/versions/node/v22.14.0/bin/claude'

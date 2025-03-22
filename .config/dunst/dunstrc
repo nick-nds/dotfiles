@@ -1,0 +1,236 @@
+[global]
+
+    ### Display ###
+
+    # Display notifications on monitor with mouse focus
+    follow = mouse
+    # Width min., max.
+    width = (300, 700)
+    # Height min, max
+    height = (100, 300)
+    # Show number of hidden notifications
+    indicate_hidden = yes
+    # Shrink window if smaller than width
+    shrink = yes
+    # Set transparency of notifications (0-100)
+    transparency = 5
+    # Position of notification
+    origin = top-right
+    # Offset from origin
+    offset = (10, 40)
+    # Height of seperators
+    separator_height = 2
+    # Text and seperator padding
+    padding = 12
+    # Horizontal padding
+    horizontal_padding = 12
+    # Width of frame around window
+    frame_width = 2
+    # Color of frame around window
+    frame_color = "#fe8019"
+    # Sort messages by urgency
+    sort = yes
+    # Idle seconds
+    idle_threshold = 120
+    # Gaps between notifications
+    gap_size = 8
+
+    ### Text ###
+
+    # Set font of notifications
+    font = FiraCodeNerdFont-Regular 12
+    # Spacing between lines
+    line_height = 4
+    # Markup parsing
+    markup = full
+    # Message format:
+    # %a - appname
+    # %s - summary
+    # %b - body
+    # %i - iconname (with path)
+    # %I - iconname (without path)
+    # %p - progress value (if set)
+    # %n - progress value no extra characters
+    # %% - literal %
+    format = "<b>%a</b>\n<i>%s</i>\n%b\n<span size='small'>Click to focus • Middle-click for action • Right-click to dismiss</span>"
+    # Align message text horizontally
+    alignment = left
+    # Align message text vertically
+    vertical_alignment = center
+    # Show age of message if message is older than x seconds
+    show_age_threshold = 60
+    # Split notifications into multiple lines
+    word_wrap = yes
+    # If message too long, add ellipsize to...
+    ellipsize = middle
+    # Ignore newlines in notifications
+    ignore_newline = no
+    # Stack duplicate notifications
+    stack_duplicates = true
+    # Hide number of duplicate notifications
+    hide_duplicate_count = false
+    # Show indicators for urls and actions
+    show_indicators = yes
+
+    ### Icons ###
+
+    # Enable icons
+    icon_position = left
+    # Scale larger icons down to this size, set to 0 to disable
+    max_icon_size = 64
+    # Paths to default icons
+    icon_path = /usr/share/icons/Papirus/16x16/status/:/usr/share/icons/Papirus/16x16/devices/:/usr/share/icons/Papirus/16x16/apps/
+
+    ### History ###
+
+    # History configuration
+    history_length = 50
+    sticky_history = yes
+
+    ### Misc ###
+
+    # Dmenu path
+    dmenu = /usr/bin/dmenu -p dunst:
+    # Browser for opening URLs in context menu
+    browser = /usr/bin/firedragon -new-tab
+    # Always run scripts
+    always_run_script = true
+    # Title of notification
+    title = Dunst
+    # Notification class
+    class = Dunst
+    # Corner radius of dunst
+    corner_radius = 8
+    # Ignore dbus closeNotification message
+    ignore_dbusclose = false
+    # Define the progress bar
+    progress_bar = true
+    progress_bar_height = 10
+    progress_bar_frame_width = 1
+    progress_bar_min_width = 150
+    progress_bar_max_width = 300
+
+    ### Mouse ###
+
+    # Left click - Focus the application (for i3) if possible, otherwise close
+    mouse_left_click = do_action, close_current
+    # Middle click - Run action
+    mouse_middle_click = context
+    # Right click
+    mouse_right_click = close_all
+    
+    ### Scripts ###
+    
+    # Script for processing actions - this is the extendable part
+    script = ~/.config/dunst/scripts/action_dispatcher.sh
+
+    # Keyboard shortcuts
+    close = ctrl+space
+    close_all = ctrl+shift+space
+    history = ctrl+h
+    context = ctrl+shift+period
+
+# Application-specific notification rules
+# Applications can be matched by appname, summary, body, icon, category, msg_urgency, desktop_entry or by script
+
+# Spotify example - with custom actions (Gruvbox)
+[spotify]
+    appname = Spotify
+    new_icon = spotify
+    format = "<b>Now Playing:</b>\n%s\n%b"
+    foreground = "#b8bb26"
+    background = "#282828"
+    highlight = "#b8bb26"
+    frame_color = "#98971a"
+    script = ~/.config/dunst/scripts/action_dispatcher.sh
+
+# Slack example - with workspace focus (Gruvbox)
+[slack]
+    appname = Slack
+    new_icon = slack
+    format = "<b>Slack</b>\n%s\n%b"
+    foreground = "#fabd2f"
+    background = "#282828"
+    highlight = "#fabd2f"
+    frame_color = "#d79921"
+    script = ~/.config/dunst/scripts/action_dispatcher.sh
+
+# Email example (Gruvbox)
+[email]
+    summary = *New Email*
+    new_icon = mail-unread
+    foreground = "#83a598"
+    background = "#282828"
+    highlight = "#83a598"
+    frame_color = "#458588"
+    urgency = normal
+    
+# KDE Connect rules - Gruvbox colors
+[kdeconnect]
+    appname = KDE Connect
+    new_icon = kdeconnect
+    format = "<b>KDE Connect</b>\n<i>%s</i>\n%b\n<span size='small'>Click to respond • Middle-click for options</span>"
+    foreground = "#83a598"
+    background = "#282828"
+    highlight = "#83a598"
+    frame_color = "#458588"
+    script = ~/.config/dunst/scripts/kdeconnect_actions.sh
+    
+[kdeconnect-sms]
+    appname = KDE Connect
+    summary = *SMS*
+    new_icon = phone
+    format = "<b>SMS Message</b>\n<i>%s</i>\n%b\n<span size='small'>Click to respond • Middle-click to display on phone</span>"
+    foreground = "#b8bb26"
+    background = "#282828"
+    highlight = "#b8bb26"
+    frame_color = "#98971a"
+    urgency = normal
+    script = ~/.config/dunst/scripts/kdeconnect_actions.sh
+    
+[kdeconnect-call]
+    appname = KDE Connect
+    summary = *Phone call*
+    new_icon = phone
+    format = "<b>Phone Call</b>\n<i>%s</i>\n%b\n<span size='small'>Click to respond • Middle-click to mute</span>"
+    foreground = "#fb4934"
+    background = "#282828"
+    highlight = "#fb4934"
+    frame_color = "#cc241d"
+    urgency = critical
+    script = ~/.config/dunst/scripts/kdeconnect_actions.sh
+    
+[kdeconnect-battery]
+    appname = KDE Connect
+    summary = *Battery*
+    new_icon = battery
+    format = "<b>Battery Status</b>\n<i>%s</i>\n%b"
+    foreground = "#d3869b"
+    background = "#282828"
+    highlight = "#d3869b"
+    frame_color = "#b16286"
+    urgency = low
+    script = ~/.config/dunst/scripts/kdeconnect_actions.sh
+
+# Set different timeouts based on urgency - Gruvbox color scheme
+[urgency_low]
+    background = "#282828"
+    foreground = "#a89984"
+    highlight = "#b8bb26"
+    frame_color = "#83a598"
+    timeout = 5
+
+[urgency_normal]
+    background = "#282828"
+    foreground = "#ebdbb2"
+    highlight = "#fabd2f"
+    frame_color = "#fe8019"
+    timeout = 10
+
+[urgency_critical]
+    background = "#282828"
+    foreground = "#fb4934"
+    frame_color = "#cc241d"
+    highlight = "#fb4934"
+    timeout = 0
+    icon = dialog-warning

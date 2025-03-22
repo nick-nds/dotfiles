@@ -38,7 +38,7 @@ workspace_auto_back_and_forth yes
 # screen before suspend. Use loginctl lock-session to lock your screen.
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
-exec_always --no-startup-id feh --bg-fill ~/dotfiles/wallapers/pacman.png
+exec_always --no-startup-id feh --bg-fill ~/dotfiles/wallpapers/pacman.png
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
@@ -50,7 +50,7 @@ exec --no-startup-id nm-applet
 set $preferredTerminalEmulator /usr/bin/kitty
 set $preferredBrowser /usr/bin/firedragon
 set $preferredFileManager /usr/bin/thunar
-set $preferredMailClient /opt/thunderbird/thunderbird
+set $preferredMailClient /usr/bin/thunderbird
 set $preferredTextEditor /usr/bin/nvim
 set $preferredScreenCaptureTool /usr/bin/flameshot gui
 
@@ -64,7 +64,6 @@ bindsym $mod+F1 exec $preferredBrowser;focus
 bindsym $mod+F2 exec $preferredFileManager;focus
 bindsym $mod+F3 exec $preferredMailClient;focus
 bindsym $mod+F4 exec $preferredTextEditor;focus
-bindsym $mod+F5 exec firefox -p YouTube;focus
 
 
 ### Screen Capturing & Print Screen: ###
@@ -219,9 +218,11 @@ bindsym $mod+Shift+9 move container to workspace $ws9
 assign [class="pypahr"] $ws0
 assign [class="firedragon"] $ws1
 assign [class="kitty"] $ws2
-assign [class="Google-chrome"] $ws3
+assign [class="chromium"] $ws3
 assign [class="thunderbird"] $ws4
+assign [class="crx_faolnafnngnfdaknnbpnkhgohbobgegn"] $ws4
 assign [class="discord"] $ws5
+assign [class="obsidian"] $ws6
 assign [class="Skype"] $ws7
 assign [class="Postman"] $ws8
 assign [class="Spotify"] $ws9
@@ -230,15 +231,15 @@ assign [class="Spotify"] $ws9
 # run skype app in full Screen
 for_window [class="Skype"] fullscreen enable
 
-bindsym $mod+Shift+s [class="Skype"] focus
-bindsym $mod+Shift+p [class="Postman"] focus
+# bindsym $mod+Shift+s [class="Skype"] focus
+# bindsym $mod+Shift+p [class="Postman"] focus
 
 workspace $ws0 output HDMI-1-0
-workspace $ws1 output HDMI-1-0
 workspace $ws2 output HDMI-1-0
 # workspace $ws2 output eDP
+workspace $ws1 output eDp
 workspace $ws3 output eDP
-workspace $ws4 output HDMI-1-0
+workspace $ws4 output eDp
 workspace $ws5 output eDP
 workspace $ws6 output eDP
 workspace $ws7 output eDP
@@ -246,7 +247,7 @@ workspace $ws8 output eDP
 workspace $ws9 output eDP
 
 # reload the configuration file
-bindsym $mod+Shift+c reload
+bindsym $mod+Shift+t reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
@@ -284,35 +285,6 @@ client.focused  			$bg-color				$bg-color				$text-color				#88c0d0
 client.unfocused			$inactive-bg-color		$inactive-bg-color		$inactive-text-color	#88c0d0
 client.focused_inactive  	$inactive-bg-color		$inactive-bg-color		$inactive-text-color	#88c0d0
 client.urgent				$urgent-bg-color		$urgent-bg-color		$text-color				#88c0d0
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-#bar {
-#        status_command i3blocks
-#		colors {
-#			background $bg-color
-#			#						border					background				text
-#			focused_workspace		$bg-color				$bg-color				$text-color
-#			inactive_workspace		$inactive-bg-color		$inactive-bg-color		$inactive-text-color
-#			urgent_workspace		$urgent-bg-color		$urgent-bg-color		$text-color
-#		}
-#}
-
-# Set shut down, restart and locking features
-# bindsym $mod+0 mode "$mode_system"
-# set $mode_system (l)ock, (e)xit, switch_(u)ser, (s)uspend, (h)ibernate, (r)eboot, (Shift+s)hutdown
-# mode "$mode_system" {
-#     bindsym l exec --no-startup-id i3exit lock, mode "default"
-#     bindsym s exec --no-startup-id i3exit suspend && i3lock -c 121317, mode "default"
-#     bindsym u exec --no-startup-id i3exit switch_user, mode "default"
-#     bindsym e exec --no-startup-id i3exit logout, mode "default"
-#     bindsym h exec --no-startup-id i3exit hibernate, mode "default"
-#     bindsym r exec --no-startup-id i3exit reboot, mode "default"
-#     bindsym Shift+s exec --no-startup-id i3exit shutdown, mode "default"
-# 
-#     # exit system mode: "Enter" or "Escape"
-#     bindsym Return mode "default"
-#     bindsym Escape mode "default"
-# }
 
 bindsym $mod+Ctrl+l exec --no-startup-id i3lock -c 3b4252
 # bindsym $mod+x exec $HOME/.config/rofi/powermenu/powermenu.sh
@@ -343,26 +315,30 @@ bindsym $mod+m exec i3-input -F 'mark %s' -l 1 -P 'Mark: '
 bindsym $mod+g exec i3-input -F '[con_mark="%s"] focus' -l 1 -P 'Goto: '
 
 # launch on startup
-# exec /snap/bin/firefox -P "Codeclouds"
-# exec /usr/bin/pypahr
-exec /usr/bin/postman
+# exec /usr/bin/postman
 exec $preferredTerminalEmulator
 exec $preferredBrowser
 exec $preferredMailClient
-# exec skype
-exec google-chrome-stable
-exec spotify
+exec obsidian
 # exec $HOME/dotfiles/scripts/start-tmux
 # exec /usr/bin/obsidian
 exec xfce4-power-manager
 exec kdeconnect-indicator
-exec $HOME/scripts/screen-resol
 bindsym $mod+Shift+m exec $HOME/dotfiles/scripts/setup-screen
 bindsym $mod+Shift+n exec $HOME/dotfiles/scripts/setup-screen a
-bindsym $mod+Shift+q exec i3lock -i $HOME/blue-screen-of-death.png -c 1F67B1 && sudo pm-suspend
+bindsym $mod+Shift+q exec i3lock -i $HOME/blue-screen-of-death.png -c 1F67B1 && systemctl suspend
 # exec_always xrandr --output HDMI-1-0 --auto
+exec xrandr --output eDP-2 --primary --mode 1920x1080 --pos 0x0 --rotate normal
+
+# warpd bindings
+bindsym $mod+Shift+x exec warpd --hint
+bindsym $mod+Shift+c exec warpd --normal
+bindsym $mod+Shift+g exec warpd --grid
+
+exec warpd
+
+# swap esc and caps lock key
+exec_always xmodmap ~/.Xmodmap
 
 # exec_always autorandr --change
-# exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-# exec_always --no-startup-id  $HOME/.config/polybar/scripts/pywal.sh $HOME/wallpaper/
 exec_always --no-startup-id  $HOME/.config/polybar/launch.sh

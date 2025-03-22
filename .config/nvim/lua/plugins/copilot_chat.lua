@@ -1,7 +1,10 @@
 return {
     {
         "CopilotC-Nvim/CopilotChat.nvim",
-        branch = "canary",
+        branch = "main",  -- Use main branch instead of deprecated canary
+        cond = function()
+            return vim.g.copilot_enabled
+        end,
         dependencies = {
             { "zbirenbaum/copilot.lua" }, -- or github/copilot.vim
             { "nvim-lua/plenary.nvim" }, -- for curl, log wrapper
