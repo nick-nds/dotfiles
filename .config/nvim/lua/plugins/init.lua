@@ -11,9 +11,6 @@ return {
 	 --A git blame plugin for neovim inspired by VS Code's GitLens plugin
 	 'APZelos/blamer.nvim',
 
-	 --emmet
-	 'mattn/emmet-vim',
-
 	 -- vim's popup api to neovim
 	 'nvim-lua/popup.nvim',
 

@@ -44,7 +44,13 @@ return {
         { '<leader>fb', function() require("telescope.builtin").buffers(
           require('telescope.themes').get_dropdown()
         ) end },
+        { '<leader>ft', function() require("telescope.builtin").tags(
+          require('telescope.themes').get_dropdown()
+        ) end },
         { '<leader>qf', function() require("telescope.builtin").quickfixhistory(
+          require('telescope.themes').get_dropdown()
+        ) end },
+        { '<leader>qff', function() require("telescope.builtin").quickfix(
           require('telescope.themes').get_dropdown()
         ) end },
     }

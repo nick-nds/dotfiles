@@ -121,7 +121,7 @@ return {
       end, {})
       
       -- Add keybinding for toggling diagnostic virtual text (using <leader>dv to avoid conflict with DAP)
-      vim.keymap.set("n", "<leader>dv", ":ToggleDiagnosticVirtualText<CR>", { noremap = true, silent = true, desc = "Toggle Diagnostic Text" })
+      vim.keymap.set("n", "<leader>td", ":ToggleDiagnosticVirtualText<CR>", { noremap = true, silent = true, desc = "Toggle Diagnostic Text" })
 
       -- Global on_attach function to be used by all LSP servers
       local on_attach = function(client, bufnr)

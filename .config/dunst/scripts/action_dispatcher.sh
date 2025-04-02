@@ -40,11 +40,11 @@ case "$APP_NAME" in
         ;;
     *)
         # Default action - try to focus the app if we can guess the window class
-        WINDOW_CLASS=$(echo "$APP_NAME" | tr '[:upper:]' '[:lower:]')
-        i3-msg "[class=\"$WINDOW_CLASS\"] focus" 2>/dev/null || \
-        i3-msg "[title=\"$APP_NAME\"] focus" 2>/dev/null || \
-        echo "No specific action for $APP_NAME" >> /tmp/dunst_actions.log
-        ;;
+        # WINDOW_CLASS=$(echo "$APP_NAME" | tr '[:upper:]' '[:lower:]')
+        # i3-msg "[class=\"$WINDOW_CLASS\"] focus" 2>/dev/null || \
+        # i3-msg "[title=\"$APP_NAME\"] focus" 2>/dev/null || \
+        # echo "No specific action for $APP_NAME" >> /tmp/dunst_actions.log
+        # ;;
 esac
 
 # If we have a URL in the body, offer to open it

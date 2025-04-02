@@ -9,12 +9,7 @@ return {
     keys = {
         { '<leader>sd', function() 
             -- Use the search_dir function with dropdown theme applied, but keep previewer enabled
-            require("search_dir_picker").search_dir(
-                require('telescope.themes').get_dropdown({
-                    previewer = true,
-                    width = 0.8,  -- Wider to accommodate previewer
-                })
-            )
-        end, desc = "Search directory picker" },
+            require("search_dir_picker").search_dir()
+        end },
     },
 }

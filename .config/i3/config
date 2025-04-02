@@ -218,9 +218,8 @@ bindsym $mod+Shift+9 move container to workspace $ws9
 assign [class="pypahr"] $ws0
 assign [class="firedragon"] $ws1
 assign [class="kitty"] $ws2
-assign [class="chromium"] $ws3
+assign [class="Chromium"] $ws3
 assign [class="thunderbird"] $ws4
-assign [class="crx_faolnafnngnfdaknnbpnkhgohbobgegn"] $ws4
 assign [class="discord"] $ws5
 assign [class="obsidian"] $ws6
 assign [class="Skype"] $ws7
@@ -237,14 +236,14 @@ for_window [class="Skype"] fullscreen enable
 workspace $ws0 output HDMI-1-0
 workspace $ws2 output HDMI-1-0
 # workspace $ws2 output eDP
-workspace $ws1 output eDp
-workspace $ws3 output eDP
-workspace $ws4 output eDp
-workspace $ws5 output eDP
-workspace $ws6 output eDP
-workspace $ws7 output eDP
-workspace $ws8 output eDP
-workspace $ws9 output eDP
+workspace $ws1 output eDp-2
+workspace $ws3 output eDP-2
+workspace $ws4 output eDp-2
+workspace $ws5 output eDP-2
+workspace $ws6 output eDP-2
+workspace $ws7 output eDP-2
+workspace $ws8 output eDP-2
+workspace $ws9 output eDP-2
 
 # reload the configuration file
 bindsym $mod+Shift+t reload
@@ -330,12 +329,7 @@ bindsym $mod+Shift+q exec i3lock -i $HOME/blue-screen-of-death.png -c 1F67B1 && 
 # exec_always xrandr --output HDMI-1-0 --auto
 exec xrandr --output eDP-2 --primary --mode 1920x1080 --pos 0x0 --rotate normal
 
-# warpd bindings
-bindsym $mod+Shift+x exec warpd --hint
-bindsym $mod+Shift+c exec warpd --normal
-bindsym $mod+Shift+g exec warpd --grid
-
-exec warpd
+exec syncthing
 
 # swap esc and caps lock key
 exec_always xmodmap ~/.Xmodmap

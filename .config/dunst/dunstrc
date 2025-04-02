@@ -127,7 +127,7 @@
     # Keyboard shortcuts
     close = ctrl+space
     close_all = ctrl+shift+space
-    history = ctrl+h
+    history = ctrl+shift+h
     context = ctrl+shift+period
 
 # Application-specific notification rules
