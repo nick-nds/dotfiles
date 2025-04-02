@@ -25,7 +25,7 @@ return {
     config = function()
       require("mason-lspconfig").setup({
         ensure_installed = {
-          "intelephense", -- PHP LSP (Laravel support) 
+          "phpactor", -- PHP LSP (Laravel support) 
           "volar", -- Vue 3 LSP
           "typescript-language-server", -- TypeScript/JavaScript LSP
           "eslint-lsp", -- JavaScript/TypeScript linting
@@ -156,36 +156,24 @@ return {
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
       -- PHP LSP (Laravel support)
-      lspconfig.intelephense.setup({
+      lspconfig.phpactor.setup({
         capabilities = capabilities,
         on_attach = on_attach,
-        settings = {
-          intelephense = {
-            format = { enable = true },
-            stubs = {
-              "apache", "bcmath", "bz2", "calendar", "com_dotnet", "Core", "ctype",
-              "curl", "date", "dba", "dom", "enchant", "exif", "fileinfo", "filter",
-              "fpm", "ftp", "gd", "hash", "iconv", "imap", "intl", "json", "ldap",
-              "libxml", "mbstring", "meta", "mysqli", "oci8", "odbc", "openssl", "pcntl",
-              "pcre", "PDO", "pdo_ibm", "pdo_mysql", "pdo_pgsql", "pdo_sqlite", "pgsql",
-              "Phar", "posix", "pspell", "readline", "Reflection", "session", "shmop",
-              "SimpleXML", "snmp", "soap", "sockets", "sodium", "SPL", "sqlite3", "standard",
-              "superglobals", "sysvmsg", "sysvsem", "sysvshm", "tidy", "tokenizer", "xml",
-              "xmlreader", "xmlrpc", "xmlwriter", "xsl", "Zend OPcache", "zip", "zlib",
-              "wordpress", "phpunit", "laravel", "blade"
-            },
-            environment = {
-              includePaths = { "/vendor" }
-            },
-            codeAction = { enable = true },
-            completion = {
-              insertUseDeclaration = true,
-              fullyQualifyGlobalConstantsAndFunctions = false,
-              preferClassConstantReference = true,
-            },
-            files = { maxSize = 5000000 },
-            telemetry = { enable = false },
-          },
+        root_dir = function(fname)
+          return lspconfig.util.find_git_ancestor(fname) or vim.fn.getcwd()
+        end,
+        init_options = {
+          ['language_server_phpstan.enabled'] = true,
+          ['language_server_psalm.enabled'] = false,
+          ['indexer.exclude_patterns'] = {"/vendor/", "/var/", "/tmp/"},
+          ['symfony.enabled'] = false,
+          ['language_server_completion.trim_leading_dollar'] = true,
+          ['code_transform.import_globals'] = true,
+          ['composer.enable'] = true,
+          ['language_server.diagnostic_providers'] = {
+            'phpstan',
+            'php'
+          }
         },
       })
 
