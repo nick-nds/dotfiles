@@ -1,0 +1,10 @@
+[Unit]
+Description=Listen to uair (Pomodoro) Unix Socket
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/socat UNIX-LISTEN:/tmp/pomodoro.sock,fork SYSTEM:"tee -a /tmp/pomodoro-log.json"
+Restart=always
+
+[Install]
+WantedBy=default.target

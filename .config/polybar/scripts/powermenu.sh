@@ -58,7 +58,7 @@ case $chosen in
         fi
         ;;
     $lock)
-        i3lock -i $HOME/blue-screen-of-death.png -c 1F67B1
+      $HOME/dotfiles/scripts/lock-screen
 		# if [[ -f /usr/bin/i3lock ]]; then
 		# 	i3lock -i $HOME/blue-screen-of-death.jpg
 		# elif [[ -f /usr/bin/betterlockscreen ]]; then
@@ -68,10 +68,11 @@ case $chosen in
     $suspend)
 		ans=$(confirm_exit &)
 		if [[ $ans == "yes" || $ans == "YES" || $ans == "y" || $ans == "Y" ]]; then
-			mpc -q pause
-			amixer set Master mute
-            i3lock -i $HOME/blue-screen-of-death.png -c 1F67B1
-			sudo /usr/bin/pm-suspend
+			# mpc -q pause
+			# amixer set Master mute
+      # i3lock -i $HOME/blue-screen-of-death.png -c 1F67B1
+			# sudo /usr/bin/pm-suspend
+      $HOME/dotfiles/scripts/lock-screen && systemctl suspend
 		elif [[ $ans == "no" || $ans == "NO" || $ans == "n" || $ans == "N" ]]; then
 			exit 0
         else

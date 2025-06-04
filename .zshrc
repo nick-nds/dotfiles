@@ -140,7 +140,7 @@ export NVM_DIR="$HOME/.nvm"
 # fi
 fpath+=${ZDOTDIR:-~}/.zsh_functions
 
-eval $(thefuck --alias --enable-experimental-instant-mode)
+# eval $(thefuck --alias --enable-experimental-instant-mode)
 
 # pnpm
 export PNPM_HOME="/home/codeclouds-nitin/.local/share/pnpm"
@@ -154,9 +154,11 @@ export DENO_INSTALL="/home/codeclouds-nitin/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
 
 export ANDROID_HOME=$HOME/Android/Sdk
+export NDK_HOME="$ANDROID_HOME/ndk/29.0.13113456"
 export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$NDK_HOME
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 
-export JAVA_HOME="/opt/jdk-21.0.4+7"
+export JAVA_HOME="/usr/lib/jvm/java-21-openjdk/"
 
 export PATH="$HOME/.config/composer/vendor/bin:$PATH"

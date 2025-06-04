@@ -18,16 +18,15 @@ alias wallpaper='/home/nick/wallpaper/wallpaper.py 1>/dev/null 2>&1 &'
 # docker aliases
 alias dcrun='docker compose run'
 alias dc='docker compose'
-# alias composer='docker compose run -w=/var/www/html/$BRANCH composer'
-alias domposer='docker exec -u 1000 -w /app/$PROJECT/$BRANCH $CONTAINER composer'
-# alias artisan='docker compose run -w=/var/www/html/$BRANCH artisan'
-alias artisan='docker exec -u 1000 -it -w /app/$PROJECT/$BRANCH $CONTAINER php artisan'
-alias phpunit='docker exec -u 1000 -it -w /app/$PROJECT/$BRANCH $CONTAINER php ./vendor/bin/phpunit'
-# alias phpunit='docker compose run -w=/var/www/html/$BRANCH phpunit'
-alias up='docker compose up'
 alias down='docker compose down'
-
 alias docker-rm='docker rm $(docker ps -aq --filter "status=exited")'
+alias start='docker compose up -d'
+alias stop='docker compose stop'
+# php docker commands
+alias domposer="./docker/bin/composer"
+alias artisan="./docker/bin/artisan"
+alias phpunit="./docker/bin/phpunit"
+alias up='docker compose up'
 
 alias gto='. git_worktree'
 

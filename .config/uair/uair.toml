@@ -1,0 +1,51 @@
+[defaults]
+format = "{time}\n"
+autostart = true
+
+[[sessions]]
+id = "work-1"
+name = "Work"
+duration = "25m"
+command = "paplay /usr/share/sounds/freedesktop/stereo/complete.oga && notify-send 'Take break' && echo '{\"round\": \"work-1\", \"start\": '$(date +%s)'}' | socat - UNIX-CONNECT:/tmp/pomodoro.sock"
+
+[[sessions]]
+id = "break-short-1"
+name = "Short Break"
+duration = "5m"
+command = "paplay /usr/share/sounds/freedesktop/stereo/complete.oga && notify-send 'Start focus' && echo '{\"round\": \"break-short-1\", \"start\": '$(date +%s)'}' | socat - UNIX-CONNECT:/tmp/pomodoro.sock"
+
+[[sessions]]
+id = "work-2"
+name = "Work"
+duration = "25m"
+command = "paplay /usr/share/sounds/freedesktop/stereo/complete.oga && notify-send 'Take break' && echo '{\"round\": \"work-2\", \"start\": '$(date +%s)'}' | socat - UNIX-CONNECT:/tmp/pomodoro.sock"
+
+[[sessions]]
+id = "break-short-2"
+name = "Short Break"
+duration = "5m"
+command = "paplay /usr/share/sounds/freedesktop/stereo/complete.oga && notify-send 'Start focus' && echo '{\"round\": \"break-short-2\", \"start\": '$(date +%s)'}' | socat - UNIX-CONNECT:/tmp/pomodoro.sock"
+
+[[sessions]]
+id = "work-3"
+name = "Work"
+duration = "25m"
+command = "paplay /usr/share/sounds/freedesktop/stereo/complete.oga && notify-send 'Take break' && echo '{\"round\": \"work-3\", \"start\": '$(date +%s)'}' | socat - UNIX-CONNECT:/tmp/pomodoro.sock"
+
+[[sessions]]
+id = "break-short-3"
+name = "Short Break"
+duration = "5m"
+command = "paplay /usr/share/sounds/freedesktop/stereo/complete.oga && notify-send 'Start focus' && echo '{\"round\": \"break-short-3\", \"start\": '$(date +%s)'}' | socat - UNIX-CONNECT:/tmp/pomodoro.sock"
+
+[[sessions]]
+id = "work-4"
+name = "Work"
+duration = "25m"
+command = "paplay /usr/share/sounds/freedesktop/stereo/complete.oga && notify-send 'Take long break' && echo '{\"round\": \"work-4\", \"start\": '$(date +%s)'}' | socat - UNIX-CONNECT:/tmp/pomodoro.sock"
+
+[[sessions]]
+id = "break-long"
+name = "Long Break"
+duration = "15m"
+command = "paplay /usr/share/sounds/freedesktop/stereo/complete.oga && notify-send 'Start focus'' && echo '{\"round\": \"break-long\", \"start\": '$(date +%s)'}' | socat - UNIX-CONNECT:/tmp/pomodoro.sock"

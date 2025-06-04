@@ -1,0 +1,5 @@
+clear Lock
+keycode 66 = Escape
+keycode 9 = Caps_Lock
+keycode 37 = Control_L
+keycode 105 = Control_R

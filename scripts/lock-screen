@@ -1,0 +1,5 @@
+#!/bin/bash
+LOCK_PID_FILE="/tmp/i3lock.pid"
+
+i3lock -i "$HOME/dotfiles/assets/blue-screen-of-death.png" -c 1F67B1 &
+echo $! > "$LOCK_PID_FILE"

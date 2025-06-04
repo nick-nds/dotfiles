@@ -1,0 +1,26 @@
+[
+    {
+        "command": "$HOME/dotfiles/scripts/lock-screen",
+        "name": "Lock Screen"
+    },
+    {
+        "command": "reboot now",
+        "name": "Reboot"
+    },
+    {
+        "command": "shutdown now",
+        "name": "Shutdown"
+    },
+    {
+        "command": "$HOME/dotfiles/scripts/lock-screen && systemctl suspend",
+        "name": "Suspend"
+    },
+    {
+        "command": "killall i3lock",
+        "name": "Unlock Screen"
+    },
+    {
+        "command": "",
+        "name": ""
+    }
+]
