@@ -205,8 +205,11 @@ lua/
 
 | Key | Description |
 |-----|-------------|
-| `<leader>hc` | Open config documentation |
-| `<leader>ch` | Open cheatsheet |
+| `<leader>hc` | Open keybindings reference |
+
+**Documentation Files:**
+- [KEYBINDINGS.md](KEYBINDINGS.md) - Complete keybindings reference
+- Access quickly with `<leader>hc` in Neovim
 
 ## 🛠️ Plugin Configuration
 

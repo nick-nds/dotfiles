@@ -70,12 +70,12 @@ vim.opt.termguicolors = true
 vim.cmd [[set formatoptions-=cro]]
 
 -- Config commands
-vim.api.nvim_create_user_command('ConfigEdit', function()
-    vim.cmd('edit ' .. vim.fn.stdpath('config') .. '/CLAUDE.md')
-end, { desc = 'Open Neovim configuration docs' })
+vim.api.nvim_create_user_command('KeybindingsEdit', function()
+    vim.cmd('edit ' .. vim.fn.stdpath('config') .. '/KEYBINDINGS.md')
+end, { desc = 'Open Neovim keybindings reference' })
 
 -- Config keybindings
-vim.keymap.set('n', '<leader>hc', '<cmd>ConfigEdit<cr>', { desc = 'Open Config Docs' })
+vim.keymap.set('n', '<leader>hc', '<cmd>KeybindingsEdit<cr>', { desc = 'Open Keybindings Reference' })
 
 -- Load Laravel testing utilities (for system PHP)
 require("utils.laravel-testing").setup_keymaps()

@@ -2,7 +2,7 @@ return {
   "obsidian-nvim/obsidian.nvim",
   version = "*",
   lazy = true,
-  enabled = false, -- Temporarily disable for performance
+  enabled = true, -- Re-enabled for note taking workflow
   cmd = {
     "ObsidianOpen",
     "ObsidianNew",
