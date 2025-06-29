@@ -1,3 +1,4 @@
 /tags*
 /lockscreen.png
 /.config/nvim/lazy-lock.json
+/.config/mpv/watch_later/*

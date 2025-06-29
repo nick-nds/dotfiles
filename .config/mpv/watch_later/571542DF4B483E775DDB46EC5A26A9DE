@@ -1,0 +1,2 @@
+start=4.526657
+vf=lavfi=graph=%74%aformat=channel_layouts=stereo,showcqt=s=1280x720:fps=30:sono_v=17:bar_v=2

@@ -313,7 +313,19 @@ exec xfce4-power-manager
 exec kdeconnect-indicator
 bindsym $mod+Shift+m exec $HOME/dotfiles/scripts/setup-screen
 bindsym $mod+Shift+n exec $HOME/dotfiles/scripts/setup-screen a
-bindsym $mod+Shift+q exec $HOME/dotfiles/scripts/lock-screen && systemctl suspend
+bindsym $mod+Shift+q exec $HOME/dotfiles/scripts/lock-screen && sleep 1 && systemctl suspend
+
+# locks and suspend on inactivity
+exec --no-startup-id xidlehook \
+  --not-when-audio \
+  --not-when-fullscreen \
+  --timer 600 \
+    '$HOME/dotfiles/scripts/lock-screen && sleep 1 && systemctl suspend' \
+    ''
+
+# battery-watcher
+exec --no-startup-id ~/.config/battery-watcher.sh
+
 
 exec xrandr --output eDP-2 --primary --mode 1920x1080 --pos 0x0 --rotate normal
 exec xrandr --output eDP-2 --primary --mode 1920x1080 --pos 1080x0 --rotate normal --output DP-1 --off --output DP-2 --off --output HDMI-1-0 --mode 1920x1080 --pos 0x0 --rotate right --output DP-1-0 --off
@@ -322,7 +334,7 @@ exec xrandr --output eDP-2 --primary --mode 1920x1080 --pos 1080x0 --rotate norm
 exec syncthing
 exec keepassxc
 
-exec $HOME/dotfiles/scripts/noisetorch.sh
+# exec $HOME/dotfiles/scripts/noisetorch.sh
 
 # swap esc and caps lock key
 exec_always xmodmap ~/.Xmodmap
