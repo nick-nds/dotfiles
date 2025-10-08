@@ -307,13 +307,13 @@ exec $preferredTerminalEmulator
 exec $preferredBrowser
 exec $preferredMailClient
 exec obsidian
-# exec $HOME/dotfiles/scripts/start-tmux
-# exec /usr/bin/obsidian
-exec xfce4-power-manager
+
 exec kdeconnect-indicator
-bindsym $mod+Shift+m exec $HOME/dotfiles/scripts/setup-screen
-bindsym $mod+Shift+n exec $HOME/dotfiles/scripts/setup-screen a
+
 bindsym $mod+Shift+q exec $HOME/dotfiles/scripts/lock-screen && sleep 1 && systemctl suspend
+
+
+bindsym $mod+Shift+m exec mpv $(xsel -bo)
 
 # locks and suspend on inactivity
 exec --no-startup-id xidlehook \
@@ -324,7 +324,7 @@ exec --no-startup-id xidlehook \
     ''
 
 # battery-watcher
-exec --no-startup-id ~/.config/battery-watcher.sh
+exec --no-startup-id ~/dotfiles/scripts/battery-watcher.sh
 
 
 exec xrandr --output eDP-2 --primary --mode 1920x1080 --pos 0x0 --rotate normal

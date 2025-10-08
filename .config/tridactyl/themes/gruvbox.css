@@ -1,0 +1,46 @@
+/* Gruvbox Dark theme for Tridactyl
+ * Place this file at ~/.config/tridactyl/themes/gruvbox.css
+ * Load with :colourscheme gruvbox
+ */
+
+:root {
+    /* Base colors */
+    --tridactyl-bg: #282828 !important;       /* Dark0 */
+    --tridactyl-fg: #ebdbb2 !important;       /* Light1 */
+    --tridactyl-border: #928374 !important;   /* Gray */
+
+    /* Statusline */
+    --tridactyl-status-bg: #3c3836 !important; /* Dark1 */
+    --tridactyl-status-fg: #ebdbb2 !important; /* Light1 */
+    --tridactyl-status-border: #504945 !important;
+
+    /* Command line */
+    --tridactyl-cmdl-bg: #282828 !important;   /* Dark0 */
+    --tridactyl-cmdl-fg: #ebdbb2 !important;   /* Light1 */
+    --tridactyl-cmdl-border: #b8bb26 !important; /* Green for accent */
+
+    /* Hints */
+    --tridactyl-hint-bg: #d79921 !important;   /* Yellow */
+    --tridactyl-hint-fg: #282828 !important;   /* Dark text */
+    --tridactyl-hint-border: #fabd2f !important;
+
+    /* Selected hint */
+    --tridactyl-hint-active-bg: #98971a !important; /* Green */
+    --tridactyl-hint-active-fg: #ebdbb2 !important;
+
+    /* Search */
+    --tridactyl-search-match-bg: #458588 !important; /* Blue */
+    --tridactyl-search-match-fg: #ebdbb2 !important;
+
+    /* Error messages */
+    --tridactyl-error-bg: #cc241d !important;  /* Red */
+    --tridactyl-error-fg: #fbf1c7 !important;  /* Light */
+
+    /* Info messages */
+    --tridactyl-info-bg: #076678 !important;   /* Aqua */
+    --tridactyl-info-fg: #ebdbb2 !important;
+
+    /* Warning messages */
+    --tridactyl-warning-bg: #d79921 !important; /* Yellow */
+    --tridactyl-warning-fg: #282828 !important;
+}

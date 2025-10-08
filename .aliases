@@ -26,6 +26,7 @@ alias stop='docker compose stop'
 alias domposer="./docker/bin/composer"
 alias artisan="./docker/bin/artisan"
 alias phpunit="./docker/bin/phpunit"
+alias sail="./vendor/bin/sail"
 alias up='docker compose up'
 
 alias gto='. git_worktree'
@@ -33,3 +34,5 @@ alias gto='. git_worktree'
 alias python='python3'
 
 alias plaude='$HOME/.nvm/versions/node/v22.14.0/bin/claude'
+
+alias rm='rip'

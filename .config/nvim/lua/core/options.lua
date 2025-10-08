@@ -31,9 +31,13 @@ local options = {
     signcolumn = "yes",
     showmode = false,
     colorcolumn = '120',
+    showtabline = 2, -- Always show tabline
 }
 
 -- Apply options
 for k, v in pairs(options) do
     vim.opt[k] = v
 end
+
+-- Session options for taboo.vim to remember tab names
+vim.opt.sessionoptions:append({ "tabpages", "globals" })

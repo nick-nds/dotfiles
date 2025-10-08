@@ -40,21 +40,31 @@ M.server_configs = {
       -- Performance optimizations
       ['language_server_phpstan.enabled'] = false, -- Disable heavy static analysis
       ['language_server_psalm.enabled'] = false,
-      ['language_server_worse_reflection.enabled'] = false,
+      ['language_server_worse_reflection.enabled'] = true, -- Enable for better Laravel support
+      ['worse_reflection.enable_cache'] = true,
+      ['worse_reflection.cache_lifetime'] = 10,
       ['indexer.enabled'] = true,
+      ['indexer.include_patterns'] = {
+        "/**/*.php",
+        "/_ide_helper*.php", -- Explicitly include IDE helper files
+      },
       ['indexer.exclude_patterns'] = {
-        "/vendor/",
-        "/var/",
-        "/tmp/", 
-        "/storage/",
-        "/bootstrap/cache/",
-        "/node_modules/",
-        "/.git/",
-        "/public/build/",
-        "/public/hot",
+        "/vendor/**",
+        "/var/**",
+        "/tmp/**", 
+        "/storage/**",
+        "/bootstrap/cache/**",
+        "/node_modules/**",
+        "/.git/**",
+        "/public/build/**",
+        "/public/hot/**",
       },
       ['indexer.poll_time'] = 5, -- Reduce polling frequency
       ['indexer.batch_size'] = 10, -- Smaller batch sizes
+      ['indexer.stub_paths'] = {
+        "%project_root%/_ide_helper.php",
+        "%project_root%/_ide_helper_models.php",
+      },
       ['symfony.enabled'] = false,
       ['language_server_completion.trim_leading_dollar'] = true,
       ['code_transform.import_globals'] = false, -- Disable expensive transforms

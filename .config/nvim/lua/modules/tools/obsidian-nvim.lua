@@ -21,6 +21,23 @@ return {
     "ObsidianRename",
     "ObsidianTags",
   },
+  keys = {
+    { "<leader>on", "<cmd>ObsidianNew<cr>", desc = "New Obsidian note" },
+    { "<leader>oo", "<cmd>ObsidianOpen<cr>", desc = "Open in Obsidian app" },
+    { "<leader>of", "<cmd>ObsidianQuickSwitch<cr>", desc = "Quick switch notes" },
+    { "<leader>ob", "<cmd>ObsidianBacklinks<cr>", desc = "Show backlinks" },
+    { "<leader>ot", "<cmd>ObsidianTags<cr>", desc = "Search tags" },
+    { "<leader>od", "<cmd>ObsidianToday<cr>", desc = "Today's daily note" },
+    { "<leader>oy", "<cmd>ObsidianYesterday<cr>", desc = "Yesterday's daily note" },
+    { "<leader>om", "<cmd>ObsidianTomorrow<cr>", desc = "Tomorrow's daily note" },
+    { "<leader>os", "<cmd>ObsidianSearch<cr>", desc = "Search in vault" },
+    { "<leader>ol", "<cmd>ObsidianLink<cr>", desc = "Link to existing note", mode = {"n", "v"} },
+    { "<leader>oL", "<cmd>ObsidianLinkNew<cr>", desc = "Link to new note", mode = {"n", "v"} },
+    { "<leader>oe", "<cmd>ObsidianTemplate<cr>", desc = "Insert template" },
+    { "<leader>or", "<cmd>ObsidianRename<cr>", desc = "Rename note" },
+    { "<leader>ow", "<cmd>ObsidianWorkspace<cr>", desc = "Switch workspace" },
+    { "<leader>op", "<cmd>ObsidianPasteImg<cr>", desc = "Paste image" },
+  },
   dependencies = {
     "nvim-lua/plenary.nvim",
     "nvim-telescope/telescope.nvim",
@@ -215,26 +232,5 @@ return {
       -- Disable frontmatter updates on save (for performance)
       disable_frontmatter = false,
     })
-
-    -- Global keymaps for Obsidian
-    vim.keymap.set("n", "<leader>on", "<cmd>ObsidianNew<cr>", { desc = "New Obsidian note" })
-    vim.keymap.set("n", "<leader>oo", "<cmd>ObsidianOpen<cr>", { desc = "Open in Obsidian app" })
-    vim.keymap.set("n", "<leader>of", "<cmd>ObsidianQuickSwitch<cr>", { desc = "Quick switch notes" })
-    vim.keymap.set("n", "<leader>ob", "<cmd>ObsidianBacklinks<cr>", { desc = "Show backlinks" })
-    vim.keymap.set("n", "<leader>ot", "<cmd>ObsidianTags<cr>", { desc = "Search tags" })
-    vim.keymap.set("n", "<leader>od", "<cmd>ObsidianToday<cr>", { desc = "Today's daily note" })
-    vim.keymap.set("n", "<leader>oy", "<cmd>ObsidianYesterday<cr>", { desc = "Yesterday's daily note" })
-    vim.keymap.set("n", "<leader>om", "<cmd>ObsidianTomorrow<cr>", { desc = "Tomorrow's daily note" })
-    vim.keymap.set("n", "<leader>os", "<cmd>ObsidianSearch<cr>", { desc = "Search in vault" })
-    vim.keymap.set("n", "<leader>ol", "<cmd>ObsidianLink<cr>", { desc = "Link to existing note" })
-    vim.keymap.set("n", "<leader>oL", "<cmd>ObsidianLinkNew<cr>", { desc = "Link to new note" })
-    vim.keymap.set("n", "<leader>oe", "<cmd>ObsidianTemplate<cr>", { desc = "Insert template" })
-    vim.keymap.set("n", "<leader>or", "<cmd>ObsidianRename<cr>", { desc = "Rename note" })
-    vim.keymap.set("n", "<leader>ow", "<cmd>ObsidianWorkspace<cr>", { desc = "Switch workspace" })
-    vim.keymap.set("n", "<leader>op", "<cmd>ObsidianPasteImg<cr>", { desc = "Paste image" })
-
-    -- Visual mode mappings
-    vim.keymap.set("v", "<leader>ol", "<cmd>ObsidianLink<cr>", { desc = "Link selection" })
-    vim.keymap.set("v", "<leader>oL", "<cmd>ObsidianLinkNew<cr>", { desc = "Link selection to new" })
   end,
 }

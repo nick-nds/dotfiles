@@ -1,0 +1,5 @@
+colourscheme gruvbox
+
+set hintchars asdf
+
+set blacklist leetcode.com/problems

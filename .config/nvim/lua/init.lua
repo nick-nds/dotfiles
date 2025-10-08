@@ -44,6 +44,7 @@ local modules = {
   require('modules.tools.neorg'),
   require('modules.tools.obsidian-nvim'),
   require('modules.tools.emmet'),
+  require('modules.tools.ledger'),
   
   -- Miscellaneous plugins
   { import = 'modules.misc' },
